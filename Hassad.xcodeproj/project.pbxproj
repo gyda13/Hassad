@@ -8,17 +8,41 @@
 
 /* Begin PBXBuildFile section */
 		094F7955299F088000319D1C /* HassadApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F7954299F088000319D1C /* HassadApp.swift */; };
-		094F7957299F088000319D1C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F7956299F088000319D1C /* ContentView.swift */; };
 		094F7959299F088300319D1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 094F7958299F088300319D1C /* Assets.xcassets */; };
 		094F795C299F088300319D1C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 094F795B299F088300319D1C /* Preview Assets.xcassets */; };
+		094F7966299F08EC00319D1C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F7965299F08EC00319D1C /* User.swift */; };
+		094F7968299F08F700319D1C /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F7967299F08F700319D1C /* Token.swift */; };
+		094F796B299F092200319D1C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F796A299F092200319D1C /* LoginView.swift */; };
+		094F796D299F094500319D1C /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F796C299F094500319D1C /* SignUpView.swift */; };
+		094F796F299F09A700319D1C /* CreateUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F796E299F09A700319D1C /* CreateUserData.swift */; };
+		094F7971299F0A1100319D1C /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F7970299F0A1100319D1C /* Auth.swift */; };
+		094F7973299F0A3600319D1C /* Auth+Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F7972299F0A3600319D1C /* Auth+Keychain.swift */; };
+		094F7975299F0A5600319D1C /* ResourceRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F7974299F0A5600319D1C /* ResourceRequestError.swift */; };
+		094F7977299F0A6C00319D1C /* ResourceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F7976299F0A6C00319D1C /* ResourceRequest.swift */; };
+		094F7979299F117D00319D1C /* HassadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F7978299F117D00319D1C /* HassadView.swift */; };
+		094F797B299F119800319D1C /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F797A299F119800319D1C /* InventoryView.swift */; };
+		094F797D299F11B600319D1C /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F797C299F11B600319D1C /* ProductView.swift */; };
+		094F797F299F11DA00319D1C /* OrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F797E299F11DA00319D1C /* OrdersView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		094F7951299F088000319D1C /* Hassad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hassad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		094F7954299F088000319D1C /* HassadApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HassadApp.swift; sourceTree = "<group>"; };
-		094F7956299F088000319D1C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		094F7958299F088300319D1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		094F795B299F088300319D1C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		094F7965299F08EC00319D1C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		094F7967299F08F700319D1C /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		094F796A299F092200319D1C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		094F796C299F094500319D1C /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		094F796E299F09A700319D1C /* CreateUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserData.swift; sourceTree = "<group>"; };
+		094F7970299F0A1100319D1C /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		094F7972299F0A3600319D1C /* Auth+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Auth+Keychain.swift"; sourceTree = "<group>"; };
+		094F7974299F0A5600319D1C /* ResourceRequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceRequestError.swift; sourceTree = "<group>"; };
+		094F7976299F0A6C00319D1C /* ResourceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceRequest.swift; sourceTree = "<group>"; };
+		094F7978299F117D00319D1C /* HassadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HassadView.swift; sourceTree = "<group>"; };
+		094F797A299F119800319D1C /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
+		094F797C299F11B600319D1C /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
+		094F797E299F11DA00319D1C /* OrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +75,11 @@
 		094F7953299F088000319D1C /* Hassad */ = {
 			isa = PBXGroup;
 			children = (
+				094F7964299F08AB00319D1C /* Utilities */,
+				094F7969299F090500319D1C /* Views */,
+				094F7963299F089F00319D1C /* View Models */,
+				094F7962299F089800319D1C /* Models */,
 				094F7954299F088000319D1C /* HassadApp.swift */,
-				094F7956299F088000319D1C /* ContentView.swift */,
 				094F7958299F088300319D1C /* Assets.xcassets */,
 				094F795A299F088300319D1C /* Preview Content */,
 			);
@@ -65,6 +92,47 @@
 				094F795B299F088300319D1C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		094F7962299F089800319D1C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				094F7965299F08EC00319D1C /* User.swift */,
+				094F7967299F08F700319D1C /* Token.swift */,
+				094F796E299F09A700319D1C /* CreateUserData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		094F7963299F089F00319D1C /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		094F7964299F08AB00319D1C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				094F7970299F0A1100319D1C /* Auth.swift */,
+				094F7972299F0A3600319D1C /* Auth+Keychain.swift */,
+				094F7974299F0A5600319D1C /* ResourceRequestError.swift */,
+				094F7976299F0A6C00319D1C /* ResourceRequest.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		094F7969299F090500319D1C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				094F796A299F092200319D1C /* LoginView.swift */,
+				094F796C299F094500319D1C /* SignUpView.swift */,
+				094F7978299F117D00319D1C /* HassadView.swift */,
+				094F797A299F119800319D1C /* InventoryView.swift */,
+				094F797C299F11B600319D1C /* ProductView.swift */,
+				094F797E299F11DA00319D1C /* OrdersView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +205,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				094F7957299F088000319D1C /* ContentView.swift in Sources */,
+				094F796F299F09A700319D1C /* CreateUserData.swift in Sources */,
+				094F7977299F0A6C00319D1C /* ResourceRequest.swift in Sources */,
+				094F797B299F119800319D1C /* InventoryView.swift in Sources */,
+				094F7968299F08F700319D1C /* Token.swift in Sources */,
+				094F796D299F094500319D1C /* SignUpView.swift in Sources */,
+				094F797D299F11B600319D1C /* ProductView.swift in Sources */,
+				094F7966299F08EC00319D1C /* User.swift in Sources */,
+				094F7971299F0A1100319D1C /* Auth.swift in Sources */,
+				094F7979299F117D00319D1C /* HassadView.swift in Sources */,
+				094F796B299F092200319D1C /* LoginView.swift in Sources */,
+				094F797F299F11DA00319D1C /* OrdersView.swift in Sources */,
 				094F7955299F088000319D1C /* HassadApp.swift in Sources */,
+				094F7975299F0A5600319D1C /* ResourceRequestError.swift in Sources */,
+				094F7973299F0A3600319D1C /* Auth+Keychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

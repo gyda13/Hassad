@@ -9,9 +9,36 @@ import SwiftUI
 
 @main
 struct HassadApp: App {
+    @StateObject
+    var auth = Auth()
+    
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
-        }
+          if auth.isLoggedIn {
+             TabView {
+               HassadView()
+                 .tabItem {
+                   Label("Hassad", systemImage: "chart.bar.xaxis")
+                 }
+               InventoryView()
+                 .tabItem {
+                   Label("Inventory", systemImage: "archivebox")
+                 }
+                 ProductView()
+                 .tabItem {
+                   Label("Products", systemImage: "square.and.pencil")
+                 }
+                 OrdersView()
+                 .tabItem {
+                   Label("Orders", systemImage: "doc.plaintext")
+                 }
+             }
+             .environmentObject(auth)
+           } else {
+             LoginView().environmentObject(auth)
+           }
+         }
+       }
     }
-}
+
