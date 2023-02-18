@@ -26,18 +26,19 @@ struct CreateProductView: View {
       
     NavigationView {
         VStack{
+            
             TextField("Product Name:", text: $productname)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
           
-            TextField("Work Price:", text: $laborcost)
+            TextField("Labor Cost:", text: $laborcost)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .keyboardType(.numberPad)
                 .padding()
             
           
             
-            TextField("Cost Price:", text: $actualcost)
+            TextField("Actual Cost:", text: $actualcost)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .keyboardType(.numberPad)
                 .padding()
@@ -65,7 +66,8 @@ struct CreateProductView: View {
         trailing:
           Button(action: saveProduct) {
             Text("Save")
-          }
+          }  .disabled(productname.isEmpty || laborcost.isEmpty || actualcost.isEmpty
+                       || totalprice.isEmpty || profit.isEmpty)
           
       )
     }
