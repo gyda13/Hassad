@@ -34,17 +34,10 @@ struct SignUpView: View {
                     SecureField("Password", text: $password)
                 .padding()
                 .padding(.horizontal)
-
-            NavigationLink(destination: ProductView() .onAppear {
-                saveUser()
-            }) {
-                Text("Sign Up")
-                    .foregroundColor(.black)
+  
+            Button("Sign Up") {
+              saveUser()
             }
-            
-//            Button("Sign Up") {
-//              saveUser()
-//            }
             .disabled(businessname.isEmpty || email.isEmpty || password.isEmpty)
 
             NavigationLink(destination: LoginView()) {
