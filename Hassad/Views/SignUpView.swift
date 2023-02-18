@@ -12,7 +12,9 @@ struct SignUpView: View {
   @State var email = ""
   @State var password = ""
   @EnvironmentObject var auth: Auth
+     
   @State private var showingUserSaveErrorAlert = false
+    @State private var showingLoginErrorAlert = false
 
   var body: some View {
 
@@ -33,9 +35,16 @@ struct SignUpView: View {
                 .padding()
                 .padding(.horizontal)
 
-            Button("Sign Up") {
-              saveUser()
+            NavigationLink(destination: ProductView() .onAppear {
+                saveUser()
+            }) {
+                Text("Sign Up")
+                    .foregroundColor(.black)
             }
+            
+//            Button("Sign Up") {
+//              saveUser()
+//            }
             .disabled(businessname.isEmpty || email.isEmpty || password.isEmpty)
 
             NavigationLink(destination: LoginView()) {
@@ -49,15 +58,29 @@ struct SignUpView: View {
     .alert(isPresented: $showingUserSaveErrorAlert) {
       Alert(title: Text("Error"), message: Text("There was a problem saving the user"))
     }
+    .alert(isPresented: $showingLoginErrorAlert) {
+        Alert(title: Text("Error"), message: Text("Could not log in. Check your credentials and try again"))
+    }
+
   }
 
 
   func saveUser() {
       let createUser = CreateUserData(businessname: businessname, email: email, password: password)
-      ResourceRequest<User>(resourcePath: "users").save(createUser, auth: auth) { result in
+      ResourceRequest<User>(resourcePath: "users").saveUser(createUser) { result in
           switch result {
           case .success:
-              break
+              auth.login(email: email, password: password) {
+                  result in
+                  switch result {
+                  case .success:
+                      break
+                  case .failure:
+                      DispatchQueue.main.async {
+                          self.showingLoginErrorAlert = true
+                      }
+                  }
+              }
           case .failure:
               DispatchQueue.main.async {
                   self.showingUserSaveErrorAlert
