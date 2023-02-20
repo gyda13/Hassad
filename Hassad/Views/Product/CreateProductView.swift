@@ -17,11 +17,13 @@ struct CreateProductView: View {
     @State var profitD = 0.0
     @State var quantity = 0
 
-    
+    @State private var showingSheet = false
   @Environment(\.presentationMode) var presentationMode
   @EnvironmentObject var auth: Auth
   @State private var showingProductSaveErrorAlert = false
-
+    
+    
+  
   var body: some View {
       
     NavigationView {
@@ -43,15 +45,22 @@ struct CreateProductView: View {
                 .keyboardType(.numberPad)
                 .padding()
             
+            
+            Button(
+              action: {
+                showingSheet.toggle()
+              }, label: {
+                  Image(systemName:"archivebox")
+                      
+                     
+              })
+            
        
             Stepper("Profit Percentage % :  \(profitD, specifier: "%.2f")", value: $profitD, in: 0...100, step: 5)
                 .padding()
+         
             
-            
-//            Text("Total Price:")
-//            Text("\(Double(actualcost)! + Double(laborcost)! + (Double(actualcost)! + Double(laborcost)!) * (profitD) / 100.0)")
-  
-           
+
         }
       .navigationBarTitle("Create Product", displayMode: .inline)
       .navigationBarItems(
@@ -66,15 +75,21 @@ struct CreateProductView: View {
         trailing:
           Button(action: saveProduct) {
             Text("Save")
-          }  .disabled(productname.isEmpty || laborcost.isEmpty || actualcost.isEmpty
-                       || totalprice.isEmpty || profit.isEmpty)
-          
+          }
       )
     }
+    
+       .sheet(isPresented: $showingSheet) {
+           InventoryForProductsView()
+    }
+    
+            
     .alert(isPresented: $showingProductSaveErrorAlert) {
-      Alert(title: Text("Error"), message: Text("There was a problem saving the acronym"))
+      Alert(title: Text("Error"), message: Text("There was a problem saving the product"))
     }
   }
+       
+   
 
   func saveProduct() {
     
@@ -103,3 +118,7 @@ struct CreateProductView_Previews: PreviewProvider {
       CreateProductView()
   }
 }
+
+    
+    
+   

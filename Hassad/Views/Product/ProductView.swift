@@ -14,11 +14,11 @@ struct ProductView: View {
     @EnvironmentObject var auth: Auth
     @State private var products: [Product] = []
     @State var modal: ModalType? = nil
-      
-      let productsRequest = ResourceRequest<Product>(resourcePath: "products")
+
     var body: some View {
       NavigationView {
         List {
+
             ForEach(products, id: \.id){
                 product in
            
@@ -83,18 +83,22 @@ struct ProductView: View {
     }
     
     func loadData() {
-        productsRequest.getAll{
-            productsRequest in
-            switch productsRequest {
-            case .failure:
-                DispatchQueue.main.async {
-                    self.showingProductErrorAlert = true
+        
+        if let a = auth.ui{
+            
+            UserProductsRequest<Product>(userID: a).getUserProduct{
+                productsRequest in
+                switch productsRequest {
+                case .failure:
+                    DispatchQueue.main.async {
+                        self.showingProductErrorAlert = true
+                    }
+                case .success(let products):
+                    DispatchQueue.main.async {
+                        self.products = products
+                    }
+                    
                 }
-            case .success(let products):
-                DispatchQueue.main.async {
-                    self.products = products
-                }
-
             }
         }
     }

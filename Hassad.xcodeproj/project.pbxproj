@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0945592929A2A0C2005EE5AA /* TokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0945592829A2A0C2005EE5AA /* TokenRequest.swift */; };
+		0945592B29A2A86F005EE5AA /* UserProductsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0945592A29A2A86F005EE5AA /* UserProductsRequest.swift */; };
+		0945592D29A2CFA5005EE5AA /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0945592C29A2CFA5005EE5AA /* Inventory.swift */; };
+		0945592F29A2D030005EE5AA /* CreatInventoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0945592E29A2D030005EE5AA /* CreatInventoryData.swift */; };
+		0945593129A2D123005EE5AA /* InventoryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0945593029A2D123005EE5AA /* InventoryRequest.swift */; };
+		0945593329A2D1CF005EE5AA /* UserInvetoryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0945593229A2D1CF005EE5AA /* UserInvetoryRequest.swift */; };
+		0945593529A2D473005EE5AA /* UpdateInventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0945593429A2D473005EE5AA /* UpdateInventoryView.swift */; };
+		0945593729A2D6C1005EE5AA /* CreateInventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0945593629A2D6C1005EE5AA /* CreateInventoryView.swift */; };
+		0945593929A2DCAF005EE5AA /* InventoryModalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0945593829A2DCAF005EE5AA /* InventoryModalType.swift */; };
+		0945593F29A2F0B7005EE5AA /* InventoryEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0945593E29A2F0B7005EE5AA /* InventoryEditView.swift */; };
+		0945594129A2F0D2005EE5AA /* InventoryForProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0945594029A2F0D2005EE5AA /* InventoryForProductsView.swift */; };
 		094F7955299F088000319D1C /* HassadApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F7954299F088000319D1C /* HassadApp.swift */; };
 		094F7959299F088300319D1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 094F7958299F088300319D1C /* Assets.xcassets */; };
 		094F795C299F088300319D1C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 094F795B299F088300319D1C /* Preview Assets.xcassets */; };
@@ -33,6 +44,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0945592829A2A0C2005EE5AA /* TokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRequest.swift; sourceTree = "<group>"; };
+		0945592A29A2A86F005EE5AA /* UserProductsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProductsRequest.swift; sourceTree = "<group>"; };
+		0945592C29A2CFA5005EE5AA /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
+		0945592E29A2D030005EE5AA /* CreatInventoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatInventoryData.swift; sourceTree = "<group>"; };
+		0945593029A2D123005EE5AA /* InventoryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryRequest.swift; sourceTree = "<group>"; };
+		0945593229A2D1CF005EE5AA /* UserInvetoryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInvetoryRequest.swift; sourceTree = "<group>"; };
+		0945593429A2D473005EE5AA /* UpdateInventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateInventoryView.swift; sourceTree = "<group>"; };
+		0945593629A2D6C1005EE5AA /* CreateInventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateInventoryView.swift; sourceTree = "<group>"; };
+		0945593829A2DCAF005EE5AA /* InventoryModalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryModalType.swift; sourceTree = "<group>"; };
+		0945593E29A2F0B7005EE5AA /* InventoryEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryEditView.swift; sourceTree = "<group>"; };
+		0945594029A2F0D2005EE5AA /* InventoryForProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryForProductsView.swift; sourceTree = "<group>"; };
 		094F7951299F088000319D1C /* Hassad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hassad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		094F7954299F088000319D1C /* HassadApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HassadApp.swift; sourceTree = "<group>"; };
 		094F7958299F088300319D1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,6 +92,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0945593A29A2F032005EE5AA /* Inventory */ = {
+			isa = PBXGroup;
+			children = (
+				094F797A299F119800319D1C /* InventoryView.swift */,
+				0945593629A2D6C1005EE5AA /* CreateInventoryView.swift */,
+				0945593429A2D473005EE5AA /* UpdateInventoryView.swift */,
+				0945593E29A2F0B7005EE5AA /* InventoryEditView.swift */,
+				0945594029A2F0D2005EE5AA /* InventoryForProductsView.swift */,
+			);
+			path = Inventory;
+			sourceTree = "<group>";
+		};
+		0945593B29A2F039005EE5AA /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				094F797C299F11B600319D1C /* ProductView.swift */,
+				0962E2FF29A0389C008C99E4 /* CreateProductView.swift */,
+				0962E30329A07C6B008C99E4 /* UpdateProductView.swift */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
 		094F7948299F088000319D1C = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +159,8 @@
 				094F796E299F09A700319D1C /* CreateUserData.swift */,
 				0962E2F929A0350C008C99E4 /* Product.swift */,
 				0962E2FD29A03622008C99E4 /* CreateProductData.swift */,
+				0945592C29A2CFA5005EE5AA /* Inventory.swift */,
+				0945592E29A2D030005EE5AA /* CreatInventoryData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -128,6 +174,11 @@
 				094F7976299F0A6C00319D1C /* ResourceRequest.swift */,
 				0962E2FB29A035F3008C99E4 /* ProductRequest.swift */,
 				0962E30529A086B0008C99E4 /* ModalType.swift */,
+				0945592829A2A0C2005EE5AA /* TokenRequest.swift */,
+				0945592A29A2A86F005EE5AA /* UserProductsRequest.swift */,
+				0945593029A2D123005EE5AA /* InventoryRequest.swift */,
+				0945593229A2D1CF005EE5AA /* UserInvetoryRequest.swift */,
+				0945593829A2DCAF005EE5AA /* InventoryModalType.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -135,15 +186,13 @@
 		094F7969299F090500319D1C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0945593B29A2F039005EE5AA /* Product */,
+				0945593A29A2F032005EE5AA /* Inventory */,
 				094F796A299F092200319D1C /* LoginView.swift */,
 				094F796C299F094500319D1C /* SignUpView.swift */,
 				094F7978299F117D00319D1C /* HassadView.swift */,
-				094F797A299F119800319D1C /* InventoryView.swift */,
-				094F797C299F11B600319D1C /* ProductView.swift */,
 				094F797E299F11DA00319D1C /* OrdersView.swift */,
-				0962E2FF29A0389C008C99E4 /* CreateProductView.swift */,
 				0962E30129A03D20008C99E4 /* ResponsiveNavigationStyle.swift */,
-				0962E30329A07C6B008C99E4 /* UpdateProductView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -218,25 +267,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0945593329A2D1CF005EE5AA /* UserInvetoryRequest.swift in Sources */,
+				0945593F29A2F0B7005EE5AA /* InventoryEditView.swift in Sources */,
+				0945592D29A2CFA5005EE5AA /* Inventory.swift in Sources */,
 				0962E30229A03D20008C99E4 /* ResponsiveNavigationStyle.swift in Sources */,
 				094F796F299F09A700319D1C /* CreateUserData.swift in Sources */,
 				094F7977299F0A6C00319D1C /* ResourceRequest.swift in Sources */,
+				0945592929A2A0C2005EE5AA /* TokenRequest.swift in Sources */,
 				0962E2FA29A0350C008C99E4 /* Product.swift in Sources */,
+				0945593129A2D123005EE5AA /* InventoryRequest.swift in Sources */,
 				0962E30629A086B0008C99E4 /* ModalType.swift in Sources */,
 				094F797B299F119800319D1C /* InventoryView.swift in Sources */,
+				0945593929A2DCAF005EE5AA /* InventoryModalType.swift in Sources */,
 				0962E30029A0389C008C99E4 /* CreateProductView.swift in Sources */,
 				094F7968299F08F700319D1C /* Token.swift in Sources */,
+				0945593529A2D473005EE5AA /* UpdateInventoryView.swift in Sources */,
+				0945593729A2D6C1005EE5AA /* CreateInventoryView.swift in Sources */,
 				094F796D299F094500319D1C /* SignUpView.swift in Sources */,
 				094F797D299F11B600319D1C /* ProductView.swift in Sources */,
 				094F7966299F08EC00319D1C /* User.swift in Sources */,
 				094F7971299F0A1100319D1C /* Auth.swift in Sources */,
+				0945592F29A2D030005EE5AA /* CreatInventoryData.swift in Sources */,
 				0962E2FC29A035F3008C99E4 /* ProductRequest.swift in Sources */,
+				0945592B29A2A86F005EE5AA /* UserProductsRequest.swift in Sources */,
 				094F7979299F117D00319D1C /* HassadView.swift in Sources */,
 				094F796B299F092200319D1C /* LoginView.swift in Sources */,
 				094F797F299F11DA00319D1C /* OrdersView.swift in Sources */,
 				094F7955299F088000319D1C /* HassadApp.swift in Sources */,
 				094F7975299F0A5600319D1C /* ResourceRequestError.swift in Sources */,
 				0962E30429A07C6B008C99E4 /* UpdateProductView.swift in Sources */,
+				0945594129A2F0D2005EE5AA /* InventoryForProductsView.swift in Sources */,
 				094F7973299F0A3600319D1C /* Auth+Keychain.swift in Sources */,
 				0962E2FE29A03622008C99E4 /* CreateProductData.swift in Sources */,
 			);

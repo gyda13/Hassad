@@ -1,15 +1,15 @@
 //
-//  ModelType.swift
+//  InventoryModelType.swift
 //  Hassad
 //
-//  Created by gyda almohaimeed on 27/07/1444 AH.
+//  Created by gyda almohaimeed on 29/07/1444 AH.
 //
 
 import Foundation
 
 
 
-enum ModalType: Identifiable {
+enum InventoryModalType: Identifiable {
     var id: String {
         switch self {
         case .add: return "add"
@@ -18,7 +18,8 @@ enum ModalType: Identifiable {
     }
     
 case add
-case update(Product)
+case update(Inventory)
     
     
 }
+

@@ -83,7 +83,7 @@ struct UpdateProductView: View {
             Text("Save")
           }
             .disabled(productname.isEmpty || laborcost.isZero || actualcost.isZero
-                      || totalprice.isZero || profit.isZero)
+                      || totalprice.isZero || profitD == 0)
       )
     }.presentationDetents([.medium])
     .alert(isPresented: $showingProductSaveErrorAlert) {

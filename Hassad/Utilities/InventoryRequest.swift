@@ -1,18 +1,18 @@
 //
-//  ProductRequest.swift
+//  InventoryRequest.swift
 //  Hassad
 //
-//  Created by gyda almohaimeed on 27/07/1444 AH.
+//  Created by gyda almohaimeed on 29/07/1444 AH.
 //
 
 
 import Foundation
 
-struct ProductRequest {
+struct InventoryRequest {
   let resource: URL
 
-  init(productID: UUID) {
-    let resourceString = "http://localhost:8080/api/products/\(productID)"
+  init(inventoryID: UUID) {
+    let resourceString = "http://localhost:8080/api/inventories/\(inventoryID)"
     guard let resourceURL = URL(string: resourceString) else {
       fatalError("Unable to createURL")
     }
@@ -20,9 +20,9 @@ struct ProductRequest {
   }
 
   func update(
-    with updateData: CreateProductData,
+    with updateData: CreatInventoryData,
     auth: Auth,
-    completion: @escaping (Result<Product, ResourceRequestError>) -> Void
+    completion: @escaping (Result<Inventory, ResourceRequestError>) -> Void
   ) {
     do {
       guard let token = auth.token else {
@@ -50,8 +50,8 @@ struct ProductRequest {
           return
         }
         do {
-          let product = try JSONDecoder().decode(Product.self, from: jsonData)
-          completion(.success(product))
+          let invetory = try JSONDecoder().decode(Inventory.self, from: jsonData)
+          completion(.success(invetory))
         } catch {
           completion(.failure(.decodingError))
         }
@@ -76,28 +76,6 @@ struct ProductRequest {
         let dataTask = URLSession.shared.dataTask(with: urlRequest)
         dataTask.resume()
     }
-    
-    
-    func getUser(completion: @escaping (Result<User, ResourceRequestError>) -> Void){
-        let url = resource.appendingPathComponent("user")
-        let dataTask = URLSession.shared.dataTask(with: url) { data, _, _ in
-            guard let jsonData = data else {
-                completion(.failure(.noData))
-                return
-            }
-            do {
-                let decoder = JSONDecoder()
-                let user = try decoder.decode(User.self, from: jsonData)
-                completion(.success(user))
-            } catch {
-                completion(.failure(.decodingError))
-            }
-        }
-        dataTask.resume()
-    }
-    
-    
-
-    
 
 }
+

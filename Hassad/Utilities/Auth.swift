@@ -24,7 +24,7 @@ class Auth: ObservableObject {
       self.isLoggedIn = true
     }
   }
-
+    var ui:UUID?
   var token: String? {
     get {
       Keychain.load(key: Auth.keychainKey)
@@ -69,6 +69,7 @@ class Auth: ObservableObject {
           do {
               let token = try JSONDecoder().decode(Token.self, from: jsonData)
               self.token = token.value
+              self.ui = token.user.id 
           } catch {
               completion(.failure)
           }
