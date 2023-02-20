@@ -67,8 +67,7 @@ struct CreateProductView: View {
         trailing:
           Button(action: saveProduct) {
             Text("Save")
-          } .disabled(productname.isEmpty || laborcost.isEmpty || actualcost.isEmpty
-                      || totalprice.isEmpty || profitD == 0)
+          } .disabled(productname.isEmpty || laborcost.isEmpty || actualcost.isEmpty || profitD == 0)
       )
     }
     

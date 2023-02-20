@@ -17,7 +17,7 @@ struct HassadApp: App {
         WindowGroup {
           if auth.isLoggedIn {
              TabView {
-               HassadView()
+               HassadView(auth: auth)
                  .tabItem {
                    Label("Hassad", systemImage: "chart.bar.xaxis")
                  }

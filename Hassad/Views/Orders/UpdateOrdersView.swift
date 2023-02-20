@@ -85,7 +85,7 @@ struct UpdateOrdersView: View {
     
 
   func updateProduct() {
-      let data = CreateProductData(productname: self.productname, laborcost: self.laborcost, actualcost: self.actualcost, totalprice: ((self.actualcost + self.laborcost) + (self.actualcost + self.laborcost) * (self.profitD) / 100.0), profit: ((self.actualcost + self.laborcost) * (self.profitD) / 100.0), quantity: self.quantity)
+      let data = CreateProductData(productname: self.productname, laborcost: self.laborcost, actualcost: self.actualcost, totalprice: ((self.actualcost + self.laborcost) + (self.actualcost + self.laborcost) * (self.profitD) / 100.0), profit: profit * Double(quantity), quantity: self.quantity)
      
     guard let id = self.product.id else {
       fatalError("Product had no ID")
