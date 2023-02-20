@@ -14,7 +14,14 @@ struct InventoryForProductsView: View {
     @EnvironmentObject var auth: Auth
     @State private var inventory: [Inventory] = []
     @State var modal: InventoryModalType? = nil
+    @AppStorage("key") var uinew = ""
+    @Environment(\.presentationMode) var presentationMode
+     init(auth: Auth) {
+         if _uinew.wrappedValue == ""{
+             _uinew.wrappedValue = "\(auth.ui!)"
 
+         }
+     }
     
     var body: some View {
       NavigationView {
@@ -52,7 +59,15 @@ struct InventoryForProductsView: View {
         }.listStyle(.insetGrouped)
        
         .navigationBarTitle("Inventory", displayMode: .inline)
-       
+        .navigationBarItems(
+          leading:
+            Button(
+              action: {
+                presentationMode.wrappedValue.dismiss()
+              }, label: {
+                Text("Cancel")
+                  .fontWeight(Font.Weight.regular)
+              }))
 
       }
       .modifier(ResponsiveNavigationStyle())
@@ -63,7 +78,7 @@ struct InventoryForProductsView: View {
       }) { modal in
           switch modal {
           case .add:
-             InventoryForProductsView()
+             InventoryForProductsView(auth: auth)
           case .update(let inventory):
              InventoryEditView(inventory: inventory)
           }
@@ -94,12 +109,28 @@ struct InventoryForProductsView: View {
                     
                 }
             }
+        } else {
+            
+            UserInvetoryRequest<Inventory>(userID:UUID(uuidString: self.uinew)!).getUserInventory{
+                productsRequest in
+                switch productsRequest {
+                case .failure:
+                    DispatchQueue.main.async {
+                        self.showingInventoryErrorAlert = true
+                    }
+                case .success(let inventory):
+                    DispatchQueue.main.async {
+                        self.inventory = inventory
+                    }
+                    
+                }
+            }
         }
     }
 }
 
-struct InventoryForProductsView_Previews: PreviewProvider {
-    static var previews: some View {
-        InventoryForProductsView()
-    }
-}
+//struct InventoryForProductsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        InventoryForProductsView()
+//    }
+//}

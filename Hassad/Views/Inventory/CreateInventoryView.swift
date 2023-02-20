@@ -55,7 +55,7 @@ struct CreateInventoryView: View {
         trailing:
           Button(action: saveInventory) {
             Text("Save")
-          }
+          } .disabled(inventoryname.isEmpty || inventoryprice.isEmpty)
       )
     }
     .alert(isPresented: $showingInventorySaveErrorAlert) {

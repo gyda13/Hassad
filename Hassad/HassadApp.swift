@@ -29,7 +29,7 @@ struct HassadApp: App {
                  .tabItem {
                    Label("Products", systemImage: "square.and.pencil")
                  }
-                 OrdersView()
+                 OrdersView(auth: auth)
                  .tabItem {
                    Label("Orders", systemImage: "doc.plaintext")
                  }

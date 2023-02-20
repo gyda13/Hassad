@@ -66,7 +66,7 @@ struct InventoryEditView: View {
         trailing:
           Button(action: updateInvetory) {
             Text("Save")
-          }
+          }.disabled(newquantity == 0)
             
       )
     }.presentationDetents([.medium])

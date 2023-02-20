@@ -17,7 +17,7 @@ struct CreateProductView: View {
     @State var profitD = 0.0
     @State var quantity = 0
 
-    @State private var showingSheet = false
+    
   @Environment(\.presentationMode) var presentationMode
   @EnvironmentObject var auth: Auth
   @State private var showingProductSaveErrorAlert = false
@@ -46,15 +46,7 @@ struct CreateProductView: View {
                 .padding()
             
             
-            Button(
-              action: {
-                showingSheet.toggle()
-              }, label: {
-                  Image(systemName:"archivebox")
-                      
-                     
-              })
-            
+        
        
             Stepper("Profit Percentage % :  \(profitD, specifier: "%.2f")", value: $profitD, in: 0...100, step: 5)
                 .padding()
@@ -75,13 +67,12 @@ struct CreateProductView: View {
         trailing:
           Button(action: saveProduct) {
             Text("Save")
-          }
+          } .disabled(productname.isEmpty || laborcost.isEmpty || actualcost.isEmpty
+                      || totalprice.isEmpty || profitD == 0)
       )
     }
     
-       .sheet(isPresented: $showingSheet) {
-           InventoryForProductsView()
-    }
+    
     
             
     .alert(isPresented: $showingProductSaveErrorAlert) {
