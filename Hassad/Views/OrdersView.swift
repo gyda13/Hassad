@@ -28,28 +28,7 @@ struct OrdersView: View {
      
       }
       
-      
-    
-//    func getAcronymData() {
-//
-//        guard let id = auth.token else {
-//            return
-//        }
-//        let tokenRequester = TokenRequest(tokenID: id)
-//        tokenRequester.getUser { result in
-//            switch result {
-//            case .success(let user):
-//                DispatchQueue.main.async {
-//                    self.user = user
-//                }
-//            case .failure:
-//                DispatchQueue.main.async {
-//                    self.showingUserErrorAlert = true
-//                }
-//            }
-//        }
-//
-//      }
+
     }
 
 struct OrdersView_Previews: PreviewProvider {

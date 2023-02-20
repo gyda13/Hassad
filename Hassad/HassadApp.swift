@@ -21,11 +21,11 @@ struct HassadApp: App {
                  .tabItem {
                    Label("Hassad", systemImage: "chart.bar.xaxis")
                  }
-               InventoryView()
+               InventoryView(auth: auth)
                  .tabItem {
                    Label("Inventory", systemImage: "archivebox")
                  }
-                 ProductView()
+                 ProductView(auth: auth)
                  .tabItem {
                    Label("Products", systemImage: "square.and.pencil")
                  }

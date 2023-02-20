@@ -13,7 +13,7 @@ struct UserInvetoryRequest<ResourceType> where ResourceType: Codable {
     
   
   init(userID: UUID) {
-    let resourceString = "http://localhost:8080/api/users/\(userID)/inventories"
+    let resourceString = "http://127.0.0.1:8080/api/users/\(userID)/inventories"
     guard let resourceURL = URL(string: resourceString) else {
       fatalError("Unable to createURL")
     }
@@ -21,7 +21,7 @@ struct UserInvetoryRequest<ResourceType> where ResourceType: Codable {
   }
 
   
-    func getUserProduct(completion: @escaping(Result<[ResourceType], ResourceRequestError>) -> Void) {
+    func getUserInventory(completion: @escaping(Result<[ResourceType], ResourceRequestError>) -> Void) {
         let dataTask = URLSession.shared.dataTask(with: resourceURL) { data, _, _ in guard let jsonData = data else {
             completion(.failure(.noData))
             return

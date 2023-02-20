@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 enum AuthResult {
   case success
@@ -24,7 +25,8 @@ class Auth: ObservableObject {
       self.isLoggedIn = true
     }
   }
-    var ui:UUID?
+   var ui:UUID?
+
   var token: String? {
     get {
       Keychain.load(key: Auth.keychainKey)
@@ -40,13 +42,14 @@ class Auth: ObservableObject {
       }
     }
   }
-
+  @AppStorage("key")var uinew = ""
   func logout() {
     token = nil
+    uinew = ""
   }
 
   func login(email: String, password: String, completion: @escaping (AuthResult) -> Void) {
-    let path = "http://localhost:8080/api/users/login"
+    let path = "http://127.0.0.1:8080/api/users/login"
       guard let url = URL(string: path) else {
       fatalError("Failed to convert URL")
     }
@@ -69,7 +72,7 @@ class Auth: ObservableObject {
           do {
               let token = try JSONDecoder().decode(Token.self, from: jsonData)
               self.token = token.value
-              self.ui = token.user.id 
+              self.ui = token.user.id
           } catch {
               completion(.failure)
           }

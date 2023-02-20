@@ -14,11 +14,18 @@ struct ProductView: View {
     @EnvironmentObject var auth: Auth
     @State private var products: [Product] = []
     @State var modal: ModalType? = nil
+   @AppStorage("key") var uinew = ""
+    
+    init(auth: Auth) {
+        if _uinew.wrappedValue == ""{
+            _uinew.wrappedValue = "\(auth.ui!)"
 
+        }
+    }
     var body: some View {
       NavigationView {
         List {
-
+         Text("\(uinew)")
             ForEach(products, id: \.id){
                 product in
            
@@ -63,7 +70,7 @@ struct ProductView: View {
       }
       .modifier(ResponsiveNavigationStyle())
         
-        
+     
       .sheet(item: $modal, onDismiss: {
            loadData()
       }) { modal in
@@ -100,12 +107,28 @@ struct ProductView: View {
                     
                 }
             }
+        } else {
+            
+            UserProductsRequest<Product>(userID:UUID(uuidString: self.uinew)!).getUserProduct{
+                productsRequest in
+                switch productsRequest {
+                case .failure:
+                    DispatchQueue.main.async {
+                        self.showingProductErrorAlert = true
+                    }
+                case .success(let products):
+                    DispatchQueue.main.async {
+                        self.products = products
+                    }
+                    
+                }
+            }
         }
     }
 }
 
-struct ProductView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductView()
-    }
-}
+//struct ProductView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProductView()
+//    }
+//}

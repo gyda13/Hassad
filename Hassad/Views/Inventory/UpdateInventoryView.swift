@@ -29,8 +29,6 @@ struct UpdateInventoryView: View {
       _inventoryname = State(initialValue: inventory.inventoryname)
       _inventoryprice = State(initialValue: inventory.inventoryprice)
       _quantity = State(initialValue: inventory.quantity)
-      
-    
     
   }
 

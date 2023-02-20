@@ -14,7 +14,14 @@ struct InventoryView: View {
     @EnvironmentObject var auth: Auth
     @State private var inventory: [Inventory] = []
     @State var modal: InventoryModalType? = nil
+    @AppStorage("key") var uinew = ""
+     
+     init(auth: Auth) {
+         if _uinew.wrappedValue == ""{
+             _uinew.wrappedValue = "\(auth.ui!)"
 
+         }
+     }
     
     var body: some View {
       NavigationView {
@@ -86,9 +93,25 @@ struct InventoryView: View {
         
         if let a = auth.ui{
             
-            UserInvetoryRequest<Inventory>(userID: a).getUserProduct{
+            UserInvetoryRequest<Inventory>(userID: a).getUserInventory{
                 inventoryRequest in
                 switch inventoryRequest {
+                case .failure:
+                    DispatchQueue.main.async {
+                        self.showingInventoryErrorAlert = true
+                    }
+                case .success(let inventory):
+                    DispatchQueue.main.async {
+                        self.inventory = inventory
+                    }
+                    
+                }
+            }
+        } else {
+            
+            UserInvetoryRequest<Inventory>(userID:UUID(uuidString: self.uinew)!).getUserInventory{
+                productsRequest in
+                switch productsRequest {
                 case .failure:
                     DispatchQueue.main.async {
                         self.showingInventoryErrorAlert = true
@@ -104,8 +127,8 @@ struct InventoryView: View {
     }
 }
 
-struct InventoryView_Previews: PreviewProvider {
-    static var previews: some View {
-        InventoryView()
-    }
-}
+//struct InventoryView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        InventoryView()
+//    }
+//}

@@ -12,7 +12,7 @@ struct InventoryRequest {
   let resource: URL
 
   init(inventoryID: UUID) {
-    let resourceString = "http://localhost:8080/api/inventories/\(inventoryID)"
+    let resourceString = "http://127.0.0.1:8080/api/inventories/\(inventoryID)"
     guard let resourceURL = URL(string: resourceString) else {
       fatalError("Unable to createURL")
     }

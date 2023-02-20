@@ -80,7 +80,7 @@ struct InventoryForProductsView: View {
         
         if let a = auth.ui{
             
-            UserInvetoryRequest<Inventory>(userID: a).getUserProduct{
+            UserInvetoryRequest<Inventory>(userID: a).getUserInventory{
                 inventoryRequest in
                 switch inventoryRequest {
                 case .failure:

@@ -9,7 +9,7 @@
 import Foundation
 
 struct ResourceRequest<ResourceType> where ResourceType: Codable {
-    let baseURL = "http://localhost:8080/api/"
+    let baseURL = "http://127.0.0.1:8080/api/"
     let resourceURL: URL
     
     init(resourcePath: String) {
@@ -124,46 +124,4 @@ struct ResourceRequest<ResourceType> where ResourceType: Codable {
         
         
     }
-
-
-//func getProduct(auth: Auth, completion: @escaping
-//                          (Result<[ResourceType], ResourceRequestError>) -> Void) {
-//        do {
-//            guard let token = auth.token else {
-//                auth.logout()
-//                return
-//            }
-//            var urlRequest = URLRequest(url: resourceURL)
-//            urlRequest.httpMethod = "GET"
-//            urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//            urlRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-//
-//
-//            let dataTask = URLSession.shared.dataTask(with: urlRequest) { data, response, _ in
-//                guard let httpResponse = response as? HTTPURLResponse else{
-//                    completion(.failure(.noData))
-//                    return
-//                }
-//                guard httpResponse.statusCode == 200, let jsonData = data else {
-//                    if httpResponse.statusCode == 401 {
-//                        auth.logout()
-//                    }
-//                    completion(.failure(.noData))
-//                    return
-//                }
-//
-//                do{
-//                    let resource = try JSONDecoder().decode([ResourceType].self, from: jsonData)
-//                    completion(.success(resource))
-//
-//                } catch {
-//                    completion(.failure(.decodingError))
-//                }
-//            }
-//            dataTask.resume()
-//        } catch {
-//            completion(.failure(.encodingError))
-//        }
-//
-//    }
 

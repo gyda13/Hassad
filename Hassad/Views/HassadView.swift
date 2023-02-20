@@ -13,12 +13,17 @@ struct HassadView: View {
     var body: some View {
         
        
-        Button(
-          action: {
-            auth.logout()
-          }, label: {
-            Text("Log Out")
+        VStack {
+            if let a = auth.ui{
+                Text("\(a)")
+            }
+            Button(
+              action: {
+                auth.logout()
+              }, label: {
+                Text("Log Out")
           })
+        }
     }
 }
 
