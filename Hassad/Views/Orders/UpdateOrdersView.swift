@@ -16,6 +16,7 @@ struct UpdateOrdersView: View {
     @State var profit: Double
     @State var quantity: Int
     @State var profitD = 0.0
+    @State var newquantity = 0
     @State private var showingSheet = false
     
     let formatter: NumberFormatter = {
@@ -42,7 +43,7 @@ struct UpdateOrdersView: View {
     NavigationView {
         VStack{
           Text("Quintity:")
-            TextField("Quintity:", value: $quantity, formatter: formatter)
+            TextField("Quintity:", value: $newquantity, formatter: formatter)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .keyboardType(.numberPad)
                 .padding()
@@ -75,9 +76,10 @@ struct UpdateOrdersView: View {
           Button(action: updateProduct) {
             Text("Save")
           }
-            .disabled( quantity == 0)
+            .disabled( newquantity == 0)
       )
-    }.presentationDetents([.medium])
+    }
+    //.presentationDetents([.medium])
     .alert(isPresented: $showingProductSaveErrorAlert) {
       Alert(title: Text("Error"), message: Text("There was a problem saving the product"))
     }
@@ -85,7 +87,7 @@ struct UpdateOrdersView: View {
     
 
   func updateProduct() {
-      let data = CreateProductData(productname: self.productname, laborcost: self.laborcost, actualcost: self.actualcost, totalprice: ((self.actualcost + self.laborcost) + (self.actualcost + self.laborcost) * (self.profitD) / 100.0), profit: profit * Double(quantity), quantity: self.quantity)
+      let data = CreateProductData(productname: self.productname, laborcost: self.laborcost, actualcost: self.actualcost, totalprice: ((self.actualcost + self.laborcost) + (self.actualcost + self.laborcost) * (self.profitD) / 100.0), profit: profit * Double(quantity + newquantity), quantity: quantity + newquantity)
      
     guard let id = self.product.id else {
       fatalError("Product had no ID")

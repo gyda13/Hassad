@@ -37,7 +37,7 @@ struct ProductView: View {
                         Text("Product Name: " + product.productname).font(.title2).bold().foregroundColor(.white)
                         Text("Product Labor Cost: \(product.laborcost)").font(.title3).foregroundColor(.white)
                         Text("Product Actual Cost: \(product.actualcost)").font(.title3).foregroundColor(.white)
-                        Text("Product Profit Price: \(product.profit)").font(.title3).foregroundColor(.white)
+                        Text("Product Profit Price: \(product.profit/Double(product.quantity))").font(.title3).foregroundColor(.white)
                         Text("Product Total Price: \(product.totalprice)").font(.title3).foregroundColor(.white)
                         
                     }.frame(width: 345, height: 164)

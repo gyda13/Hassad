@@ -25,6 +25,14 @@ struct HassadView: View {
 
 
         VStack {
+            Button(
+              action: {
+                auth.logout()
+              }, label: {
+                Text("Log Out")
+          })
+            
+            
             Picker("" , selection: $selection){
                               
                               Text("Product Profits").tag("ProductProfits")
@@ -39,32 +47,31 @@ struct HassadView: View {
                     Chart {
                         ForEach(products, id: \.id){
                             product in
-                            BarMark(
-                                x: .value("Product Name", product.productname),
-                                y: .value("Product Profits", product.profit)
-                            )
+                            if product.quantity != 0 {
+                                BarMark(
+                                    x: .value("Product Name", product.productname),
+                                    y: .value("Product Profits", product.profit)
+                                ).foregroundStyle(Color.blue.gradient)
+                            }
                         }
-                    }
+                    }.frame(height: 240)
                 }
             } else {
                 GroupBox ( "Product Quintity Chart") {
                     Chart {
                         ForEach(products, id: \.id){
                             product in
-                            BarMark(
-                                x: .value("Product Name", product.productname),
-                                y: .value("Product Quintity", product.quantity)
-                            )
+                            if product.quantity != 0 {
+                                BarMark(
+                                    x: .value("Product Name", product.productname),
+                                    y: .value("Product Quintity", product.quantity)
+                                ).foregroundStyle(Color.pink.gradient)
+                            }
                         }
-                    }
+                    }.frame(height: 240)
                 }
             }
-            Button(
-              action: {
-                auth.logout()
-              }, label: {
-                Text("Log Out")
-          })
+         
         } .onAppear(perform: loadData)
     }
  

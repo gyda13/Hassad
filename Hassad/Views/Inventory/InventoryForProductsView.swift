@@ -36,11 +36,10 @@ struct InventoryForProductsView: View {
                 } label: {
                     VStack(alignment: .leading){
                         Text("Inventory Name: " + inventory.inventoryname).font(.title2).bold().foregroundColor(.white)
-                        Text("Inventory Price: \(inventory.inventoryprice)").font(.title3).foregroundColor(.white)
                         Text("Quantity: \(inventory.quantity)").font(.title3).foregroundColor(.white)
                      
                         
-                    }.frame(width: 345, height: 164)
+                    }.frame(width: 345, height: 64)
                 }
             }
             .onDelete(perform: {IndexSet in

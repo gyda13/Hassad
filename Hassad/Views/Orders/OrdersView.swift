@@ -54,7 +54,7 @@ struct OrdersView: View {
                 .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
         }.listStyle(.insetGrouped)
        
-        .navigationTitle("Products")
+        .navigationTitle("Set Order")
       }
       .modifier(ResponsiveNavigationStyle())
         
