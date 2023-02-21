@@ -43,6 +43,7 @@ struct LoginView: View {
             .navigationTitle("Log In")
             .navigationBarBackButtonHidden(true)
         }
+        .modifier(ResponsiveNavigationStyle())
     }
   func login() {
       

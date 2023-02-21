@@ -5,8 +5,12 @@
 //  Created by gyda almohaimeed on 27/07/1444 AH.
 //
 import SwiftUI
+import Combine
 
 struct UpdateProductView: View {
+    
+    
+   
   var product: Product
     @State var productname: String
     @State var laborcost: Double
@@ -34,41 +38,100 @@ struct UpdateProductView: View {
       _totalprice = State(initialValue: product.totalprice)
       _profit = State(initialValue: product.profit)
       _quantity = State(initialValue: product.quantity)
+      
+      UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
   }
 
   var body: some View {
+      
     NavigationView {
-        VStack{
-            TextField("Product Name:", text: $productname)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-          
-            TextField("Labor Cost:", value: $laborcost, formatter: formatter)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .keyboardType(.numberPad)
-                .padding()
+        
+        ZStack{
             
-          
+            Color("Prime").edgesIgnoringSafeArea(.all)
             
-            TextField("Actual Cost:", value: $actualcost, formatter: formatter)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .keyboardType(.numberPad)
-                .padding()
             
-            TextField("Quintity:", value: $quantity, formatter: formatter)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .keyboardType(.numberPad)
-                .padding()
+             Section {
+                 Text("Product name")
+                     .foregroundColor(Color.white)
+                     .font(.title2)
+                     .bold()
+                     .offset(x:-105 , y:-278)
+                 
+                 HStack {
+                     TextField("", text: $productname)
+                         .foregroundColor(Color.black)
+                         .padding()
+                         .offset(x:10)
+                 }
+                 .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: 355, height: 35))
+                 .offset(y:-238)
+             }
             
+            Section {
+                Text("Labor Cost")
+                    .foregroundColor(Color.white)
+                    .font(.title2)
+                    .bold()
+                    .offset(x:-120 , y:-166)
+                
+                HStack {
+                    TextField("", value: $laborcost, formatter: formatter)
+                        .foregroundColor(Color.black)
+                        .padding()
+                        .offset(x:10)
+                    
+                        .keyboardType(.asciiCapable)
+
+                }
+                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: 355, height: 35))
+                .offset(y:-126)
+                
+            }
+            
+      
+             
+            Section {
+                Text("Materials Cost")
+                    .foregroundColor(Color.white)
+                    .font(.title2)
+                    .bold()
+                    .offset(x:-103 , y:-54)
+                
+                HStack {
+                    TextField("", value: $actualcost, formatter: formatter)                        .foregroundColor(Color.black)
+                        .padding()
+                        .offset(x:10)
+                    
+                        .keyboardType(.asciiCapable)
+                    
+                      
+                }
+                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: 355, height: 35))
+                .offset(y:-14)
+                
+               
+            }
+            
+            Section {
+                Text("Profit Margin")
+                    .foregroundColor(Color.white)
+                    .font(.title2)
+                    .bold()
+                    .offset(x:-110 , y:58)
+                
+                Stepper("Profit Percentage % :  \(profitD, specifier: "%.2f")", value: $profitD, in: 0...100, step: 5)
+                     .offset(y:98)
+                     .padding(.horizontal, 20.0)
+            }
        
-            Stepper("Profit Percentage % :  \(profitD, specifier: "%.2f")", value: $profitD, in: 0...100, step: 5)
-                .padding()
-          
   
            
         }
         
-      .navigationBarTitle("Edit Product", displayMode: .inline)
+     // .navigationBarTitle("Edit Product", displayMode: .inline)
+         .navigationBarTitle("Edit Product", displayMode: .inline).foregroundColor(.white)
+        
       .navigationBarItems(
         leading:
           Button(
@@ -84,8 +147,11 @@ struct UpdateProductView: View {
           }
             .disabled(productname.isEmpty || laborcost.isZero || actualcost.isZero
                       || totalprice.isZero || profitD == 0)
+        
+          .foregroundColor(Color.white)
+          .bold()
       )
-    }.presentationDetents([.medium])
+    }.modifier(ResponsiveNavigationStyle())
     .alert(isPresented: $showingProductSaveErrorAlert) {
       Alert(title: Text("Error"), message: Text("There was a problem saving the product"))
     }
@@ -119,8 +185,8 @@ struct UpdateProductView: View {
   }
 }
 
-//struct EditAcronymView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    EditAcronymView(acronym: dummyAcronyms[0])
-//  }
-//}
+struct UpdateProductView_Previews: PreviewProvider {
+  static var previews: some View {
+      UpdateProductView(product: Product(productname: "", laborcost: 0.0, actualcost: 0.0, totalprice: 0.0, profit: 0.0, quantity: 1, userID: UUID()))
+  }
+}

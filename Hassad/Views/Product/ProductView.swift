@@ -15,6 +15,7 @@ struct ProductView: View {
     @State private var products: [Product] = []
     @State var modal: ModalType? = nil
    @AppStorage("key") var uinew = ""
+   
     
     init(auth: Auth) {
         if _uinew.wrappedValue == ""{
@@ -25,7 +26,7 @@ struct ProductView: View {
     var body: some View {
       NavigationView {
         List {
-         Text("\(uinew)")
+       
             ForEach(products, id: \.id){
                 product in
            
@@ -33,14 +34,14 @@ struct ProductView: View {
                 Button {
                     modal = .update(product)
                 } label: {
+                    
                     VStack(alignment: .leading){
-                        Text("Product Name: " + product.productname).font(.title2).bold().foregroundColor(.white)
-                        Text("Product Labor Cost: \(product.laborcost)").font(.title3).foregroundColor(.white)
-                        Text("Product Actual Cost: \(product.actualcost)").font(.title3).foregroundColor(.white)
-                        Text("Product Profit Price: \(product.profit/Double(product.quantity))").font(.title3).foregroundColor(.white)
-                        Text("Product Total Price: \(product.totalprice)").font(.title3).foregroundColor(.white)
+                        Image(systemName: "ellipsis")
+                            .foregroundColor(.white)
+                        Text(" \( product.productname)" ).font(.title2).bold().foregroundColor(.white)
+                        Text(" \(String(format: "%.2f", product.totalprice)) SR ").font(.title3).foregroundColor(.white)
                         
-                    }.frame(width: 345, height: 164)
+                    }.frame(width: 345, height: 100)
                 }
             }
             .onDelete(perform: {IndexSet in
@@ -127,8 +128,9 @@ struct ProductView: View {
     }
 }
 
+
 //struct ProductView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        ProductView()
+//        ProductView(auth: Auth())
 //    }
 //}

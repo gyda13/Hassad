@@ -35,16 +35,16 @@ struct UpdateInventoryView: View {
   var body: some View {
     NavigationView {
         VStack{
-            TextField("Inventory Name:", text: $inventoryname)
+            TextField("Material Name:", text: $inventoryname)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
           
-            TextField("Inventory Price:", value: $inventoryprice, formatter: formatter)
+            TextField("Material Price:", value: $inventoryprice, formatter: formatter)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .keyboardType(.numberPad)
                 .padding()
          
-            TextField("Quintity:", value: $quantity, formatter: formatter)
+            TextField("Material Quintity:", value: $quantity, formatter: formatter)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .keyboardType(.numberPad)
                 .padding()
@@ -70,7 +70,8 @@ struct UpdateInventoryView: View {
           }
             .disabled(inventoryname.isEmpty || inventoryprice.isZero)
       )
-    }.presentationDetents([.medium])
+    }.modifier(ResponsiveNavigationStyle())
+    .presentationDetents([.medium])
     .alert(isPresented: $showingInventorySaveErrorAlert) {
       Alert(title: Text("Error"), message: Text("There was a problem saving the inventory"))
     }
@@ -102,3 +103,12 @@ struct UpdateInventoryView: View {
     }
   }
 }
+
+
+struct UpdateInventoryView_Previews: PreviewProvider {
+    static var previews: some View {
+        UpdateInventoryView(inventory: Inventory(inventoryname: "", inventoryprice: 0.0, quantity: 1, userID: UUID()))
+    }
+}
+
+

@@ -16,7 +16,7 @@ struct ResponsiveNavigationStyle: ViewModifier {
     if horizontalSizeClass == .compact { /// iPhone
       content.navigationViewStyle(StackNavigationViewStyle())
     } else { /// iPad or larger iPhone in landscape
-      content.navigationViewStyle(DoubleColumnNavigationViewStyle())
+      content.navigationViewStyle(StackNavigationViewStyle())
     }
   }
 }

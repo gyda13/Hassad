@@ -35,12 +35,12 @@ struct InventoryView: View {
                     modal = .update(inventory)
                 } label: {
                     VStack(alignment: .leading){
-                        Text("Inventory Name: " + inventory.inventoryname).font(.title2).bold().foregroundColor(.white)
-                        Text("Inventory Price: \(inventory.inventoryprice)").font(.title3).foregroundColor(.white)
-                        Text("Quantity: \(inventory.quantity)").font(.title3).foregroundColor(.white)
+                        Text("Material Name: " + inventory.inventoryname).font(.title2).bold().foregroundColor(.white)
+                        Text("Material Price: \(String(format: "%.2f",inventory.inventoryprice))").font(.title3).foregroundColor(.white)
+                        Text("Material Quantity: \(inventory.quantity)").font(.title3).foregroundColor(.white)
                      
                         
-                    }.frame(width: 345, height: 164)
+                    }.frame(width: 345, height: 100)
                 }
             }
             .onDelete(perform: {IndexSet in
@@ -127,8 +127,8 @@ struct InventoryView: View {
     }
 }
 
-//struct InventoryView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        InventoryView()
-//    }
-//}
+struct InventoryView_Previews: PreviewProvider {
+    static var previews: some View {
+        InventoryView(auth: Auth())
+    }
+}

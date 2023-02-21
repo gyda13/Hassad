@@ -7,6 +7,7 @@
 
 
 import SwiftUI
+import Combine
 
 struct CreateInventoryView: View {
     @State var inventoryname = ""
@@ -21,28 +22,85 @@ struct CreateInventoryView: View {
   var body: some View {
       
     NavigationView {
-        VStack{
+        ZStack{
             
-            TextField("Inventory Name:", text: $inventoryname)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-          
-            TextField("Inventory Price:", text: $inventoryprice)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .keyboardType(.numberPad)
-                .padding()
-          
+            Color("Prime").edgesIgnoringSafeArea(.all)
             
-            TextField("Quntity:", text: $quantity)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .keyboardType(.numberPad)
-                .padding()
-
-    
-  
+            Section {
+                Text("Material name")
+                    .foregroundColor(Color.white)
+                    .font(.title2)
+                    .bold()
+                    .offset(x:-105 , y:-278)
+                
+                HStack {
+                    TextField("", text: $inventoryname)
+                        .foregroundColor(Color.black)
+                        .padding()
+                        .offset(x:10)
+                }
+                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: 355, height: 35))
+                .offset(y:-238)
+            }
+            
+            Section {
+                Text("Material price")
+                    .foregroundColor(Color.white)
+                    .font(.title2)
+                    .bold()
+                    .offset(x:-105 , y:-166)
+                
+                HStack {
+                    TextField("", text: $inventoryprice)
+                        .foregroundColor(Color.black)
+                        .padding()
+                        .offset(x:10)
+                    
+                        .keyboardType(.numberPad)
+                    
+                        .onReceive(Just(inventoryprice)) { newValue in
+                            let filtered = newValue.filter { "0123456789".contains($0) }
+                            if filtered != newValue {
+                                self.inventoryprice = filtered
+                            }
+                        }
+                }
+                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: 355, height: 35))
+                .offset(y:-126)
+                
+               
+            }
+      
+            Section {
+                Text("Material Quantity")
+                    .foregroundColor(Color.white)
+                    .font(.title2)
+                    .bold()
+                    .offset(x:-90 , y:-54)
+                
+                HStack {
+                    TextField("", text: $quantity)
+                        .foregroundColor(Color.black)
+                        .padding()
+                        .offset(x:10)
+                    
+                        .keyboardType(.numberPad)
+                    
+                        .onReceive(Just(quantity)) { newValue in
+                            let filtered = newValue.filter { "0123456789".contains($0) }
+                            if filtered != newValue {
+                                self.quantity = filtered
+                            }
+                        }
+                }
+                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: 355, height: 35))
+         
+               
+            }
+          
            
         }
-      .navigationBarTitle("Create Inventory", displayMode: .inline)
+      .navigationBarTitle("Create Inventory", displayMode: .inline).foregroundColor(.white)
       .navigationBarItems(
         leading:
           Button(
@@ -54,10 +112,15 @@ struct CreateInventoryView: View {
             }),
         trailing:
           Button(action: saveInventory) {
-            Text("Save")
+              if(inventoryname != "" && inventoryprice != "" ) {
+                  Text("Save")
+                      .foregroundColor(.white)
+              } else {
+                  Text("Save")
+              }
           } .disabled(inventoryname.isEmpty || inventoryprice.isEmpty)
       )
-    }
+    }.modifier(ResponsiveNavigationStyle())
     .alert(isPresented: $showingInventorySaveErrorAlert) {
       Alert(title: Text("Error"), message: Text("There was a problem saving the acronym"))
     }

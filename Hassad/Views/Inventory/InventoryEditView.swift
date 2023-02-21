@@ -40,7 +40,7 @@ struct InventoryEditView: View {
     NavigationView {
         VStack{
             
-           Text("Inventory Name:\(inventoryname)")
+           Text("Material Name:\(inventoryname)")
           
          
             TextField("Quintity:", value: $newquantity, formatter: formatter)
@@ -69,7 +69,8 @@ struct InventoryEditView: View {
           }.disabled(newquantity == 0)
             
       )
-    }.presentationDetents([.medium])
+    }.modifier(ResponsiveNavigationStyle())
+    .presentationDetents([.medium])
     .alert(isPresented: $showingInventorySaveErrorAlert) {
       Alert(title: Text("Error"), message: Text("There was a problem saving the inventory"))
     }
@@ -101,3 +102,12 @@ struct InventoryEditView: View {
     }
   }
 }
+
+
+struct InventoryEditView_Previews: PreviewProvider {
+    static var previews: some View {
+        InventoryEditView(inventory: Inventory(inventoryname: "", inventoryprice: 0.0, quantity: 1, userID: UUID()))
+    }
+}
+
+

@@ -34,7 +34,7 @@ struct OrdersView: View {
                 } label: {
                     VStack(alignment: .leading){
                         Text("Product Name: " + product.productname).font(.title2).bold().foregroundColor(.white)
-                        Text("Product Total Price: \(product.totalprice)").font(.title3).foregroundColor(.white)
+                        Text("Product Total Price: \(String(format: "%.2f", product.totalprice))").font(.title3).foregroundColor(.white)
                         
                     }.frame(width: 345, height: 100)
                 }

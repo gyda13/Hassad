@@ -79,7 +79,6 @@ struct UpdateOrdersView: View {
             .disabled( newquantity == 0)
       )
     }
-    //.presentationDetents([.medium])
     .alert(isPresented: $showingProductSaveErrorAlert) {
       Alert(title: Text("Error"), message: Text("There was a problem saving the product"))
     }

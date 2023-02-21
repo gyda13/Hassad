@@ -46,7 +46,7 @@ struct SignUpView: View {
             }
         }
       .navigationBarTitle("SignUp")
-
+      .modifier(ResponsiveNavigationStyle())
 
     .alert(isPresented: $showingUserSaveErrorAlert) {
       Alert(title: Text("Error"), message: Text("There was a problem saving the user"))

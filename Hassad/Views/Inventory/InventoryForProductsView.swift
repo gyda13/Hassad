@@ -35,7 +35,7 @@ struct InventoryForProductsView: View {
                     modal = .update(inventory)
                 } label: {
                     VStack(alignment: .leading){
-                        Text("Inventory Name: " + inventory.inventoryname).font(.title2).bold().foregroundColor(.white)
+                        Text("Material Name: " + inventory.inventoryname).font(.title2).bold().foregroundColor(.white)
                         Text("Quantity: \(inventory.quantity)").font(.title3).foregroundColor(.white)
                      
                         
@@ -128,8 +128,8 @@ struct InventoryForProductsView: View {
     }
 }
 
-//struct InventoryForProductsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        InventoryForProductsView()
-//    }
-//}
+struct InventoryForProductsView_Previews: PreviewProvider {
+    static var previews: some View {
+        InventoryForProductsView(auth: Auth())
+    }
+}
