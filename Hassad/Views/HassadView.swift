@@ -119,10 +119,3 @@ struct HassadView: View {
 //        HassadView()
 //    }
 //}
-
-
-
-//            if let a = auth.ui{
-//                Text("\(a)")
-//            }
-

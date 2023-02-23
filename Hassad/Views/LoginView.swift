@@ -16,34 +16,75 @@ struct LoginView: View {
    
     var body: some View {
         NavigationView {
-            VStack {
-                TextField("Email", text: $email)
-                    .padding()
-                    .autocapitalization(.none)
-                    .keyboardType(.emailAddress)
-                    .padding(.horizontal)
-                SecureField("Password", text: $password)
-                    .padding()
-                    .padding(.horizontal)
-                Button("Log In") {
-                    login()
-                }
-                .disabled(email.isEmpty || password.isEmpty)
+            ZStack {
                 
-                NavigationLink(destination: SignUpView()) {
-                    Text("dont have an account? SignUp")
-                        .foregroundColor(.black)
+            
+                    RoundedRectangle(cornerRadius: 33, style: .circular)
+                        .fill(Color("defultColor"))
+                
+                    .frame(width: UIScreen.screenWidth, height: 676).padding(.top,140)
+            
+                VStack {
+                    Text("Welcome Back")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .padding(.bottom)
                     
-                }.navigationBarBackButtonHidden(true)
-            }
-           
-            .alert(isPresented: $showingLoginErrorAlert) {
-                Alert(title: Text("Error"), message: Text("Could not log in. Check your credentials and try again"))
-            }
-            .navigationTitle("Log In")
+                  
+                    TextField("\(Image(systemName: "person.fill")) Email Address", text: $email)
+                        .keyboardType(.emailAddress)
+                        .frame(width: 323)
+                        .padding()
+                        .background(Color("textfields"))
+                        .cornerRadius(14)
+                        .overlay(RoundedRectangle(cornerRadius: 14)
+                            .stroke(Color("borders"), lineWidth: 1))
+                      //  .offset(x:0, y: -5)
+                    
+                    SecureField("\(Image(systemName: "lock.fill")) Password", text: $password)
+                        .frame(width: 323)
+                        .padding()
+                        .background(Color("textfields"))
+                        .cornerRadius(14)
+                        .overlay(RoundedRectangle(cornerRadius: 14)
+                        .stroke(Color("borders"), lineWidth: 1))
+                        
+                    
+                    
+                    Button("Log In") {
+                        login()
+                    }
+                    .disabled(email.isEmpty || password.isEmpty)
+                    .frame(width: 335.0, height: 30.0)
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color("darkBlue"))
+                    .cornerRadius(17.5)
+                    
+                   // .offset(x: 0,y: 25)
+                    HStack{
+                        
+                        Text("Don't Have an Account?")
+                            .foregroundColor(Color.gray)
+                        NavigationLink(destination: SignUpView()) {
+                            Text("Sign up")
+                                .fontWeight(.bold)
+                                .foregroundColor(.black)
+                            
+                            
+                        }.navigationBarBackButtonHidden(true)
+                    }
+                }
+               
+                .alert(isPresented: $showingLoginErrorAlert) {
+                    Alert(title: Text("Error"), message: Text("Could not log in. Check your credentials and try again"))
+                }
+                .navigationTitle("Log In")
             .navigationBarBackButtonHidden(true)
+            }.background(Color("AccentColor"))
         }
-        .modifier(ResponsiveNavigationStyle())
     }
   func login() {
       
