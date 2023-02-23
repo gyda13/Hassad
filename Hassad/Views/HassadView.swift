@@ -72,13 +72,13 @@ struct HassadView: View {
                 NavigationLink(destination: profile()) {
                     
                     Label("pro", systemImage: "person.circle")
-                         .bold()
+                         .bold().foregroundColor(.accentColor)
         
                 }
                                
                 
-                }
-        } .onAppear(perform: loadData)
+            }
+        } .onAppear(perform: loadData) 
     }
  
     func loadData() {

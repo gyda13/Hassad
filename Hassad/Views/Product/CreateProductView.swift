@@ -34,37 +34,37 @@ struct CreateProductView: View {
         ZStack{
             
             Color("Prime").edgesIgnoringSafeArea(.all)
-            
-            Section {
+            VStack(spacing:30){
+        
                 Text("Product name")
                     .foregroundColor(Color.white)
                     .font(.title2)
                     .bold()
-                    .offset(x:-105 , y:-278)
+                    //.offset(x:-105 , y:-278)
                 
                 HStack {
                     TextField("", text: $productname)
                         .foregroundColor(Color.black)
-                        .padding()
-                        .offset(x:10)
+                       
+                        //.offset(x:10)
                 }
-                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: 355, height: 35))
-                .offset(y:-238)
-            }
+                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: UIScreen.screenWidth-50, height: 35))
+               // .offset(y:-238)
+                .padding(.horizontal,40)
             
-   
-            Section {
+            
+           
                 Text("Labor Cost")
                     .foregroundColor(Color.white)
                     .font(.title2)
                     .bold()
-                    .offset(x:-120 , y:-166)
+                   // .offset(x:-120 , y:-166)
                 
                 HStack {
                     TextField("", text: $laborcost)
                         .foregroundColor(Color.black)
-                        .padding()
-                        .offset(x:10)
+                       // .padding()
+                       // .offset(x:10)
                     
                         .keyboardType(.numberPad)
                     
@@ -75,22 +75,22 @@ struct CreateProductView: View {
                             }
                         }
                 }
-                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: 355, height: 35))
-                .offset(y:-126)
+                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: UIScreen.screenWidth-50, height: 35))  .padding(.horizontal,40)
+               // .offset(y:-126)
                 
-            }
             
-            Section {
+            
+           
                 Text("Materials Cost")
                     .foregroundColor(Color.white)
                     .font(.title2)
                     .bold()
-                    .offset(x:-103 , y:-54)
+                    //.offset(x:-103 , y:-54)
                 
                 HStack {
                     TextField("", text: $actualcost)
                         .foregroundColor(Color.black)
-                        .padding()
+                       // .padding()
                         .offset(x:10)
                     
                         .keyboardType(.numberPad)
@@ -102,28 +102,28 @@ struct CreateProductView: View {
                             }
                         }
                 }
-                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: 355, height: 35))
-                .offset(y:-14)
+                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width:UIScreen.screenWidth-50, height: 35))  .padding(.horizontal,40)
+              //  .offset(y:-14)
                 
-               
-            }
+                
             
-            Section {
+            
+      
                 Text("Profit Margin")
                     .foregroundColor(Color.white)
                     .font(.title2)
                     .bold()
-                    .offset(x:-110 , y:58)
+                   // .offset(x:-110 , y:58)
                 
                 Stepper("Profit Percentage % :  \(profitD, specifier: "%.2f")", value: $profitD, in: 0...100, step: 5)
-                     .offset(y:98)
-                     .padding(.horizontal, 20.0)
-            }
-       
-          
+                   // .offset(y:98)
+                    .padding(.horizontal, 20.0)
             
-
-           
+            
+            
+            
+            
+        }
         }
         .navigationBarTitle("Create Product", displayMode: .inline).foregroundColor(.white)
         
