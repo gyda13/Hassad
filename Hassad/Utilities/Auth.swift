@@ -48,6 +48,7 @@ class Auth: ObservableObject {
     uinew = ""
   }
 
+
   func login(email: String, password: String, completion: @escaping (AuthResult) -> Void) {
     let path = "http://127.0.0.1:8080/api/users/login"
       guard let url = URL(string: path) else {

@@ -41,6 +41,7 @@
 		0962E30429A07C6B008C99E4 /* UpdateProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0962E30329A07C6B008C99E4 /* UpdateProductView.swift */; };
 		0962E30629A086B0008C99E4 /* ModalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0962E30529A086B0008C99E4 /* ModalType.swift */; };
 		09D8DEF629A3B7DE00EE38D8 /* UpdateOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D8DEF529A3B7DE00EE38D8 /* UpdateOrdersView.swift */; };
+		A09C859729A7BEB300B4F943 /* profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09C859629A7BEB300B4F943 /* profile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		0962E30329A07C6B008C99E4 /* UpdateProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProductView.swift; sourceTree = "<group>"; };
 		0962E30529A086B0008C99E4 /* ModalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalType.swift; sourceTree = "<group>"; };
 		09D8DEF529A3B7DE00EE38D8 /* UpdateOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateOrdersView.swift; sourceTree = "<group>"; };
+		A09C859629A7BEB300B4F943 /* profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				0945593429A2D473005EE5AA /* UpdateInventoryView.swift */,
 				0945593E29A2F0B7005EE5AA /* InventoryEditView.swift */,
 				0945594029A2F0D2005EE5AA /* InventoryForProductsView.swift */,
+				A09C859629A7BEB300B4F943 /* profile.swift */,
 			);
 			path = Inventory;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				094F7971299F0A1100319D1C /* Auth.swift in Sources */,
 				0945592F29A2D030005EE5AA /* CreatInventoryData.swift in Sources */,
 				0962E2FC29A035F3008C99E4 /* ProductRequest.swift in Sources */,
+				A09C859729A7BEB300B4F943 /* profile.swift in Sources */,
 				0945592B29A2A86F005EE5AA /* UserProductsRequest.swift in Sources */,
 				094F7979299F117D00319D1C /* HassadView.swift in Sources */,
 				094F796B299F092200319D1C /* LoginView.swift in Sources */,
