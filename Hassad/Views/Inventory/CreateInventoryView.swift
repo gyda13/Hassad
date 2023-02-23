@@ -25,37 +25,32 @@ struct CreateInventoryView: View {
         ZStack{
             
             Color("Prime").edgesIgnoringSafeArea(.all)
-            
-            Section {
+            VStack(spacing:30){
+          
                 Text("Material name")
                     .foregroundColor(Color.white)
                     .font(.title2)
                     .bold()
-                    .offset(x:-105 , y:-278)
-                
+                  
                 HStack {
                     TextField("", text: $inventoryname)
                         .foregroundColor(Color.black)
-                        .padding()
-                        .offset(x:10)
+                  
                 }
-                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: 355, height: 35))
-                .offset(y:-238)
-            }
+                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: UIScreen.screenWidth-50, height: 35))
+                .padding(.horizontal,40)
             
-            Section {
+            
+         
                 Text("Material price")
                     .foregroundColor(Color.white)
                     .font(.title2)
                     .bold()
-                    .offset(x:-105 , y:-166)
+                  
                 
                 HStack {
                     TextField("", text: $inventoryprice)
                         .foregroundColor(Color.black)
-                        .padding()
-                        .offset(x:10)
-                    
                         .keyboardType(.numberPad)
                     
                         .onReceive(Just(inventoryprice)) { newValue in
@@ -65,24 +60,22 @@ struct CreateInventoryView: View {
                             }
                         }
                 }
-                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: 355, height: 35))
-                .offset(y:-126)
+                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: UIScreen.screenWidth-50, height: 35))
+                .padding(.horizontal,40)
                 
-               
-            }
-      
-            Section {
+                
+            
+            
+        
                 Text("Material Quantity")
                     .foregroundColor(Color.white)
                     .font(.title2)
                     .bold()
-                    .offset(x:-90 , y:-54)
+               
                 
                 HStack {
                     TextField("", text: $quantity)
                         .foregroundColor(Color.black)
-                        .padding()
-                        .offset(x:10)
                     
                         .keyboardType(.numberPad)
                     
@@ -93,12 +86,10 @@ struct CreateInventoryView: View {
                             }
                         }
                 }
-                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: 355, height: 35))
-         
-               
-            }
-          
-           
+                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: UIScreen.screenWidth-50, height: 35))
+                .padding(.horizontal,40)
+            
+            }.padding(.bottom,90)
         }
       .navigationBarTitle("Create Inventory", displayMode: .inline).foregroundColor(.white)
       .navigationBarItems(
