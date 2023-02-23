@@ -117,13 +117,13 @@ struct CreateProductView: View {
                 
                 Stepper("Profit Percentage % :  \(profitD, specifier: "%.2f")", value: $profitD, in: 0...100, step: 5)
                    // .offset(y:98)
-                    .padding(.horizontal, 20.0)
+                    .padding(.horizontal, 40)
             
             
             
             
             
-        }
+            }.padding(.bottom,60)
         }
         .navigationBarTitle("Create Product", displayMode: .inline).foregroundColor(.white)
         
