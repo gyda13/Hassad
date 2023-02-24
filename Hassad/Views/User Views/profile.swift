@@ -50,21 +50,22 @@ struct profile: View {
                                     .font(.title2)
                                     .fontWeight(.bold)
                                     .foregroundColor(Color.white)
-                                    .offset(x: 0, y: 10)
+                                   // .offset(x: 0, y: 10)
                                 
                                 Text("_____________________________")
                                     .fontWeight(.thin)
                                     .foregroundColor(Color.white)
-                                    .offset(x: 0, y: -15)
+                          
+                                   // .offset(x: 0, y: -15)
                           Text(user?.email ?? "no")
                                     .font(.title2)
                                     .fontWeight(.bold)
                                     .foregroundColor(Color.white)
-                                    .offset(x: 0, y: 0)
+                                   // .offset(x: 0, y: 0)
                                 
                                 Text("__________________________________")
                                     .fontWeight(.thin)                        .foregroundColor(Color.white)
-                                    .offset(x: 0, y: -25)
+                                  //  .offset(x: 0, y: -25)
                             }
                         
                         
