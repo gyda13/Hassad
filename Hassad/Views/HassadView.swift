@@ -53,18 +53,38 @@ struct HassadView: View {
 //                    }
 //                    Text(users?.businessname ?? "none").foregroundColor(.red)
 //                    Text(users?.email ?? "none").foregroundColor(.red)
-                    HStack {
-                        Text("\(String(format: "%.2f", TotalProfit()))")
-                            .foregroundColor(.white)
-                        Text("|")
-                            .foregroundColor(.white)
-                        Text("\(TotalOrders())")
-                            .foregroundColor(.white)
+                   ZStack {
+                        Rectangle()
+                            .frame(width: 340, height: 150)
+                            .mask(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                            .foregroundColor(Color(red: 0.466, green: 0.552, blue: 0.661))
+                        //                        .padding(.top , -230)
+                        VStack {
+                            Text(Date().formatted(date: .complete, time: .omitted))
+                                .foregroundColor(.white)
+                                
+                            HStack(alignment: .bottom, spacing: 35){
+                               
+                                VStack{
+                              
+                                    Text("\(TotalProfit())").font(.largeTitle).bold()
+                                        .padding(.bottom,4)
+                                    Text("Profits").bold()
+                                }.foregroundColor(.white)
+                                
+                                Rectangle()
+                                    .frame(width: 1, height: 80)
+                                    .foregroundColor(.white)
+                              
+                                VStack{
+                                    Text("\(TotalOrders())").font(.largeTitle).bold()
+                                        .padding(.bottom,4)
+                                    Text("Orders").bold()
+                                }.foregroundColor(.white)
                           
+                            }
                         }
-                    .frame(width: 345, height: 164)
-                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.accentColor))
-
+                    }
                     
                     Picker("" , selection: $selection){
                         

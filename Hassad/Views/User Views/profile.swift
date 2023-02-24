@@ -142,3 +142,92 @@ struct profile: View {
 //        profile(auth: Auth())
 //    }
 //}
+//struct HP: View {
+//    var body: some View {
+//        NavigationView{
+//            ZStack{
+//                Color("Back").ignoresSafeArea()
+//                VStack{
+//                    VStack{
+//                    }    //     .padding(.leading , 20)
+//                    VStack{
+//                        ScrollView{
+//                            ZStack{
+//                                Rectangle()
+//                                    .frame(width: 340, height: 150)
+//                                    .mask(RoundedRectangle(cornerRadius: 8, style: .continuous))
+//                                    .foregroundColor(Color(red: 0.466, green: 0.552, blue: 0.661))
+//                                //                        .padding(.top , -230)
+//                                VStack {
+//                                    Text(Date().formatted(date: .complete, time: .omitted))
+//                                        .foregroundColor(.white)
+//                                        
+//                                    HStack(alignment: .bottom, spacing: 35){
+//                                       
+//                                        VStack{
+//                                      
+//                                            Text("\(TotalProfit())").font(.largeTitle).bold()
+//                                                .padding(.bottom,4)
+//                                            Text("Profits").bold()
+//                                        }.foregroundColor(.white)
+//                                        
+//                                        Rectangle()
+//                                            .frame(width: 1, height: 80)
+//                                            .foregroundColor(.white)
+//                                      
+//                                        VStack{
+//                                            Text("\(TotalOrders())").font(.largeTitle).bold()
+//                                                .padding(.bottom,4)
+//                                            Text("Orders").bold()
+//                                        }.foregroundColor(.white)
+//                                  
+//                                    }
+//                                }
+//                            }
+////-----------------------------------------------------------------------------------
+//                            ZStack{
+//                               
+//                                Rectangle()
+//                                    .frame(width: 340, height: 110)
+//                                    .mask(RoundedRectangle(cornerRadius: 17, style: .continuous))
+//                                    .foregroundColor(.white)
+//                                    .padding(.top , 20)
+//                                     Text(" Business Info")
+//                                    .bold()
+//                            }
+////-----------------------------------------------------------------------------------
+//                            ZStack{
+//                                Rectangle()
+//                                
+//                                    .frame(width: 340, height: 150)
+//                                    .mask(RoundedRectangle(cornerRadius: 17, style: .continuous))
+//                                    .foregroundColor(.white)
+//                                    .padding(.top ,50 )
+//                                     Text(" Support")
+//                                    .bold()
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//            .navigationTitle("Business Name")
+//            .navigationBarTitleDisplayMode(.automatic)
+//                                .toolbar{
+//                                    Button {
+//                                
+//                                    } label: {
+//                                        Label("pro", systemImage: "person.circle")
+//                                            .bold()
+//            
+//                                    }
+//                                    .accentColor(Color(red: 0.466, green: 0.552, blue: 0.661))
+//                                }
+//            
+//        } // nav
+//     }
+//}
+//    struct HP_Previews: PreviewProvider {
+//        static var previews: some View {
+//            HP()
+//        }
+//    }
