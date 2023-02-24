@@ -35,11 +35,21 @@ struct InventoryForProductsView: View {
                     modal = .update(inventory)
                 } label: {
                     VStack(alignment: .leading){
-                        Text("Material Name: " + inventory.inventoryname).font(.title2).bold().foregroundColor(.white)
-                        Text("Quantity: \(inventory.quantity)").font(.title3).foregroundColor(.white)
-                     
-                        
-                    }.frame(width: 345, height: 64)
+                      
+                        HStack {
+                         
+                            VStack{
+                                Text(inventory.inventoryname).font(.title2).bold().foregroundColor(.white)
+                                Text("   Quantity: \(inventory.quantity)").font(.title3).foregroundColor(.white)
+                            }
+                            Spacer()
+                            Image(systemName: "plus.circle")
+                                .foregroundColor(.white)
+                                .bold()
+                                .font(.system(size: 24))
+                                .padding()
+                        }.padding()
+                    }.frame(width: 344, height: 72)
                 }
             }
             .onDelete(perform: {IndexSet in

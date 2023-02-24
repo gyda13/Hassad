@@ -45,16 +45,18 @@ struct UpdateOrdersView: View {
         ZStack{
             
             Color("Prime").edgesIgnoringSafeArea(.all)
-            VStack{
-                
+            HStack{
+                VStack(alignment: .leading, spacing: 20){
+                    
+                    
                 Text("Materials used:")
                     .foregroundColor(.white)
                     .bold()
                     .font(.title2)
                 ZStack{
-                    RoundedRectangle(cornerRadius: 25)
+                    RoundedRectangle(cornerRadius: 17)
                         .fill(.white)
-                        .frame(width: 100, height: 100)
+                        .frame(width: 80, height: 80)
                     Button(
                         action: {
                             showingSheet.toggle()
@@ -64,22 +66,26 @@ struct UpdateOrdersView: View {
                                 
                             
                         })
-                }
+                }.padding()
                 
                 Text("Product Quantity:")
                     .foregroundColor(.white)
                     .bold()
                     .font(.title2)
                 TextField("Product Quantity:", value: $newquantity, formatter: formatter)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .foregroundColor(Color("text"))
+                        .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
                     .keyboardType(.asciiCapableNumberPad)
-                    .padding()
+                   
                 
             
+                Spacer()
+                }
                 
-            }   .sheet(isPresented: $showingSheet) {
-                InventoryForProductsView(auth: auth)
-            }
+                .sheet(isPresented: $showingSheet) {
+                    InventoryForProductsView(auth: auth)
+                }.padding()
+            }.padding()
         }
       .navigationBarTitle("Edit Product", displayMode: .inline)
       .navigationBarItems(

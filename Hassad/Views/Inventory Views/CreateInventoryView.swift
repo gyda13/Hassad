@@ -25,71 +25,66 @@ struct CreateInventoryView: View {
         ZStack{
             
             Color("Prime").edgesIgnoringSafeArea(.all)
-            VStack(spacing:30){
-          
-                Text("Material name")
-                    .foregroundColor(Color.white)
-                    .font(.title2)
-                    .bold()
-                  
-                HStack {
-                    TextField("", text: $inventoryname)
-                        .foregroundColor(Color.black)
-                  
-                }
-                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: UIScreen.screenWidth-50, height: 35))
-                .padding(.horizontal,40)
-            
-            
-         
-                Text("Material price")
-                    .foregroundColor(Color.white)
-                    .font(.title2)
-                    .bold()
-                  
-                
-                HStack {
-                    TextField("", text: $inventoryprice)
-                        .foregroundColor(Color.black)
-                        .keyboardType(.asciiCapableNumberPad)
+            HStack{
+                VStack(alignment: .leading, spacing: 20){
                     
-                        .onReceive(Just(inventoryprice)) { newValue in
-                            let filtered = newValue.filter { "0123456789".contains($0) }
-                            if filtered != newValue {
-                                self.inventoryprice = filtered
+                    
+                    
+                    Text("Material name")
+                        .foregroundColor(Color.white)
+                        .font(.title2)
+                        .bold()
+                    
+                    HStack {
+                        TextField("", text: $inventoryname)
+                            .foregroundColor(Color("text"))
+                            .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
+                        
+                    }
+                    
+                    
+                    
+                    Text("Material price")
+                        .foregroundColor(Color.white)
+                        .font(.title2)
+                        .bold()
+                    
+                    
+                    HStack {
+                        TextField("", text: $inventoryprice)
+                            .foregroundColor(Color("text"))
+                            .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
+                            .keyboardType(.asciiCapableNumberPad)
+                        
+                            .onReceive(Just(inventoryprice)) { newValue in
+                                let filtered = newValue.filter { "0123456789".contains($0) }
+                                if filtered != newValue {
+                                    self.inventoryprice = filtered
+                                }
                             }
-                        }
-                }
-                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: UIScreen.screenWidth-50, height: 35))
-                .padding(.horizontal,40)
-                
-                
-            
-            
-        
-                Text("Material quantity")
-                    .foregroundColor(Color.white)
-                    .font(.title2)
-                    .bold()
-               
-                
-                HStack {
-                    TextField("", text: $quantity)
-                        .foregroundColor(Color.black)
+                    }
                     
-                        .keyboardType(.asciiCapableNumberPad)
+                    Text("Material quantity")
+                        .foregroundColor(Color.white)
+                        .font(.title2)
+                        .bold()
                     
-                        .onReceive(Just(quantity)) { newValue in
-                            let filtered = newValue.filter { "0123456789".contains($0) }
-                            if filtered != newValue {
-                                self.quantity = filtered
+                    HStack {
+                        TextField("", text: $quantity)
+                            .foregroundColor(Color("text"))
+                            .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
+                            .keyboardType(.asciiCapableNumberPad)
+                        
+                            .onReceive(Just(quantity)) { newValue in
+                                let filtered = newValue.filter { "0123456789".contains($0) }
+                                if filtered != newValue {
+                                    self.quantity = filtered
+                                }
                             }
-                        }
-                }
-                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: UIScreen.screenWidth-50, height: 35))
-                .padding(.horizontal,40)
-            
-            }.padding(.bottom,90)
+                    }
+                    
+                }.padding(.bottom,90)
+            }.padding()
         }
       .navigationBarTitle("Create Material", displayMode: .inline).foregroundColor(.white)
       .navigationBarItems(

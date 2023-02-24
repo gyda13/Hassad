@@ -36,16 +36,24 @@ struct ProductView: View {
                 } label: {
                     
                     VStack(alignment: .leading){
-                        HStack {
+                        VStack{
                             Spacer()
-                            Image(systemName: "ellipsis")
-                                .foregroundColor(.white)
-                        }
-                        Text(" \( product.productname)" ).font(.title2).bold().foregroundColor(.white)
-                        Text(" \(String(format: "%.2f", product.totalprice)) SR ").font(.title3).foregroundColor(.white)
-                        
-                    }.frame(width: 345, height: 100)
-                        .padding(.horizontal)
+                            Text("")
+                            HStack {
+                                Spacer()
+                                Image(systemName: "ellipsis")
+                                    .foregroundColor(.white)
+                                    .bold()
+                                    .padding()
+                            }.frame(width: 344, height: 0.5)
+                        }.frame(width: 344, height: 0.5)
+                      Text("  \(product.productname)" ).font(.title2).bold().foregroundColor(.white)
+                        Text("")
+                        Text("  \(String(format: "%.2f", product.totalprice)) SR ").font(.title3).foregroundColor(.white)
+                            
+                        }.frame(width: 344, height: 100)
+                   
+                   
                 }
             }
             .onDelete(perform: {IndexSet in
@@ -58,9 +66,9 @@ struct ProductView: View {
                 products.remove(atOffsets: IndexSet)
             })
             .listRowBackground(Color.clear)
-            .background(RoundedRectangle(cornerRadius: 17).fill(Color.accentColor))
             .listRowSeparator(.hidden)
-                .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+            .background(RoundedRectangle(cornerRadius: 17).fill(Color.accentColor))
+            .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
         }.listStyle(.insetGrouped)
        
         .navigationTitle("Products")

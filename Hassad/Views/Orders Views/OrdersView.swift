@@ -33,10 +33,19 @@ struct OrdersView: View {
                     modal = .update(product)
                 } label: {
                     VStack(alignment: .leading){
-                        Text("Product Name: " + product.productname).font(.title2).bold().foregroundColor(.white)
-                        Text("Product Total Price: \(String(format: "%.2f", product.totalprice))").font(.title3).foregroundColor(.white)
-                        
-                    }.frame(width: 345, height: 100)
+                        HStack {
+                            VStack{
+                                Text("   \(product.productname)").font(.title2).bold().foregroundColor(.white)
+                                Text("")
+                                Text("\(String(format: "%.2f", product.totalprice)) SR ").font(.title3).foregroundColor(.white)
+                            }
+                            Spacer()
+                            Image(systemName: "plus.circle")
+                                .foregroundColor(.white)
+                                .font(.system(size: 30))
+                                .padding()
+                        }.padding()
+                    }.frame(width: 344, height: 100)
                 }
             }
             .onDelete(perform: {IndexSet in

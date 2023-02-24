@@ -67,11 +67,11 @@ struct LoginView: View {
                     HStack{
                         
                         Text("Don't Have an Account?")
-                            .foregroundColor(Color.gray)
+                            .foregroundColor(Color(.gray))
                         NavigationLink(destination: SignUpView()) {
                             Text("Sign up")
                                 .fontWeight(.bold)
-                                .foregroundColor(.black)
+                                .foregroundColor(Color("text"))
                             
                             
                         }.navigationBarBackButtonHidden(true)

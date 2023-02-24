@@ -14,7 +14,10 @@ struct SignUpView: View {
   @EnvironmentObject var auth: Auth
     @State private var confirmPassword: String = ""
   @State private var showingUserSaveErrorAlert = false
+    @State private var emailErrorAlert = false
     @State private var showingLoginErrorAlert = false
+    @State private var passwordErrorAlert = false
+    
 
   var body: some View {
 
@@ -65,9 +68,17 @@ struct SignUpView: View {
                       .stroke(Color("borders"), lineWidth: 1))
       
                 Button("Sign Up") {
-                  saveUser()
+                    if(!email.isValidEmail()){
+                        self.emailErrorAlert = true
+                    }
+                    if (password != confirmPassword){
+                        self.passwordErrorAlert = true
+                    }
+                    else {
+                        saveUser()
+                    }
                 }
-                .disabled(businessname.isEmpty || email.isEmpty || password.isEmpty || password != confirmPassword || !email.isValidEmail() )
+                .disabled(businessname.isEmpty || email.isEmpty || password.isEmpty )
                 .frame(width: 335.0, height: 30.0)
                 .font(.title2)
                 .fontWeight(.bold)
@@ -76,10 +87,19 @@ struct SignUpView: View {
                     .background(Color("darkBlue"))
                     .cornerRadius(17.5)
 
-                NavigationLink(destination: LoginView()) {
-                    Text("already have an account? Log In")
-                        .foregroundColor(.accentColor)
-                }.navigationBarBackButtonHidden(true)
+              
+              HStack{
+                  
+                  Text("Already have an Account?")
+                      .foregroundColor(Color(.gray))
+                  NavigationLink(destination: LoginView()) {
+                      Text("Log In")
+                          .fontWeight(.bold)
+                          .foregroundColor(Color("text"))
+                      
+                      
+                  }.navigationBarBackButtonHidden(true)
+              }
             }
           .navigationBarTitle("SignUp")
           .navigationBarBackButtonHidden(true)
@@ -90,6 +110,17 @@ struct SignUpView: View {
         .alert(isPresented: $showingLoginErrorAlert) {
             Alert(title: Text("Error"), message: Text("Could not log in. Check your credentials and try again"))
     }
+          
+        .alert(isPresented: $emailErrorAlert){
+            Alert(title: Text("Error"), message: Text("Please enter a valid email"))
+      }
+          
+        .alert(isPresented: $passwordErrorAlert) {
+            Alert(title: Text("Error"), message: Text("Password do not match"))
+    }
+          
+          
+          
       }
       
 
@@ -119,6 +150,8 @@ struct SignUpView: View {
               }
           }
       }
+      
+      
       
       
   }

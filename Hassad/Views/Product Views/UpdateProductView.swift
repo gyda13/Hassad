@@ -49,80 +49,66 @@ struct UpdateProductView: View {
         ZStack{
             
             Color("Prime").edgesIgnoringSafeArea(.all)
-            
-            VStack(spacing:30){
-          
-                Text("Product name")
-                    .foregroundColor(Color.white)
-                    .font(.title2)
-                    .bold()
-                 
-                
-                HStack {
-                    TextField("", text: $productname)
-                        .foregroundColor(Color.black)
-                }
-                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: UIScreen.screenWidth-50, height: 35))
-               // .offset(y:-238)
-                .padding(.horizontal,40)
-          
-          
-                Text("Labor Cost")
-                    .foregroundColor(Color.white)
-                    .font(.title2)
-                    .bold()
-                  
-                
-                HStack {
-                    TextField("", value: $laborcost, formatter: formatter)
-                        .foregroundColor(Color.black)
-                        .keyboardType(.asciiCapableNumberPad)
-                    
-                }
-                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: UIScreen.screenWidth-50, height: 35))
-               // .offset(y:-238)
-                .padding(.horizontal,40)
-                
-            
-            
-            
-            
-          
-                Text("Materials Cost")
-                    .foregroundColor(Color.white)
-                    .font(.title2)
-                    .bold()
-                  
-                
-                HStack {
-                    TextField("", value: $actualcost, formatter: formatter)                        .foregroundColor(Color.black)
-                        .keyboardType(.asciiCapableNumberPad)
+            HStack{
+                VStack(alignment: .leading, spacing: 20){
                     
                     
-                }
-                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: UIScreen.screenWidth-50, height: 35))
-               // .offset(y:-238)
-                .padding(.horizontal,40)
-                
-                
-            
-        
-                Text("Profit Margin")
-                    .foregroundColor(Color.white)
-                    .font(.title2)
-                    .bold()
-                   
-                
-                Stepper("Profit Percentage % :  \(profitD, specifier: "%.2f")", value: $profitD, in: 0...100, step: 5)
-                    .padding(.horizontal, 40)
-        
-            
-            
-            
-        }.padding(.bottom,60)
+                    Text("Product name")
+                        .foregroundColor(Color.white)
+                        .font(.title2)
+                        .bold()
+                    
+                    
+                    HStack {
+                        TextField("", text: $productname)
+                            .foregroundColor(Color("text"))
+                            .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
+                    }
+                    
+                    
+                    Text("Labor Cost")
+                        .foregroundColor(Color.white)
+                        .font(.title2)
+                        .bold()
+                    
+                    
+                    HStack {
+                        TextField("", value: $laborcost, formatter: formatter)
+                            .foregroundColor(Color("text"))
+                            .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
+                            .keyboardType(.asciiCapableNumberPad)
+                        
+                    }
+                    Text("Materials Cost")
+                        .foregroundColor(Color.white)
+                        .font(.title2)
+                        .bold()
+                    
+                    
+                    HStack {
+                        TextField("", value: $actualcost, formatter: formatter)                        .foregroundColor(Color("text"))
+                            .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
+                            .keyboardType(.asciiCapableNumberPad)
+                       
+                    }
+                    
+                    
+                    Text("Profit Margin")
+                        .foregroundColor(Color.white)
+                        .font(.title2)
+                        .bold()
+                    
+                    
+                    Stepper("Profit Percentage % :  \(profitD, specifier: "%.2f")", value: $profitD, in: 0...100, step: 5)
+                        .padding()
+                    
+                    
+                    
+                    
+                }.padding(.bottom,60)
+            }.padding()
         }
         
-     // .navigationBarTitle("Edit Product", displayMode: .inline)
          .navigationBarTitle("Edit Product", displayMode: .inline).foregroundColor(.white)
         
       .navigationBarItems(

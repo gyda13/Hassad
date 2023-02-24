@@ -96,8 +96,4 @@ struct ProductRequest {
         dataTask.resume()
     }
     
-    
-
-    
-
 }

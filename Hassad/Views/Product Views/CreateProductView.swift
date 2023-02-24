@@ -34,95 +34,66 @@ struct CreateProductView: View {
         ZStack{
             
             Color("Prime").edgesIgnoringSafeArea(.all)
-            VStack(spacing:30){
-        
-                Text("Product name")
-                    .foregroundColor(Color.white)
-                    .font(.title2)
-                    .bold()
-                    //.offset(x:-105 , y:-278)
-                
-                HStack {
-                    TextField("", text: $productname)
-                        .foregroundColor(Color.black)
-                       
-                        //.offset(x:10)
-                }
-                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: UIScreen.screenWidth-50, height: 35))
-               // .offset(y:-238)
-                .padding(.horizontal,40)
             
-            
-           
-                Text("Labor Cost")
-                    .foregroundColor(Color.white)
-                    .font(.title2)
-                    .bold()
-                   // .offset(x:-120 , y:-166)
-                
-                HStack {
-                    TextField("", text: $laborcost)
-                        .foregroundColor(Color.black)
-                       // .padding()
-                       // .offset(x:10)
+            HStack{
+                VStack(alignment: .leading, spacing: 20){
                     
-                        .keyboardType(.asciiCapableNumberPad)
                     
-                        .onReceive(Just(laborcost)) { newValue in
-                            let filtered = newValue.filter { "0123456789".contains($0) }
-                            if filtered != newValue {
-                                self.laborcost = filtered
+                    Text("Product name")
+                        .foregroundColor(Color.white)
+                        .font(.title2)
+                        .bold()
+                    HStack {
+                        TextField("", text: $productname)
+                            .foregroundColor(Color("text"))
+                            .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
+                    }
+                    Text("Labor Cost")
+                        .foregroundColor(Color.white)
+                        .font(.title2)
+                        .bold()
+                    HStack {
+                        TextField("", text: $laborcost)
+                            .foregroundColor(Color("text"))
+                            .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
+                            .keyboardType(.asciiCapableNumberPad)
+                        
+                            .onReceive(Just(laborcost)) { newValue in
+                                let filtered = newValue.filter { "0123456789".contains($0) }
+                                if filtered != newValue {
+                                    self.laborcost = filtered
+                                }
                             }
-                        }
-                }
-                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: UIScreen.screenWidth-50, height: 35))  .padding(.horizontal,40)
-               // .offset(y:-126)
-                
-            
-            
-           
-                Text("Materials Cost")
-                    .foregroundColor(Color.white)
-                    .font(.title2)
-                    .bold()
-                    //.offset(x:-103 , y:-54)
-                
-                HStack {
-                    TextField("", text: $actualcost)
-                        .foregroundColor(Color.black)
-                       // .padding()
-                        .offset(x:10)
+                    }
                     
-                        .keyboardType(.asciiCapableNumberPad)
-                        .onReceive(Just(actualcost)) { newValue in
-                            let filtered = newValue.filter { "0123456789".contains($0) }
-                            if filtered != newValue {
-                                self.actualcost = filtered
+                    Text("Materials Cost")
+                        .foregroundColor(Color.white)
+                        .font(.title2)
+                        .bold()
+                    HStack {
+                        TextField("", text: $actualcost)
+                            .foregroundColor(Color("text"))
+                            .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
+                            .keyboardType(.asciiCapableNumberPad)
+                            .onReceive(Just(actualcost)) { newValue in
+                                let filtered = newValue.filter { "0123456789".contains($0) }
+                                if filtered != newValue {
+                                    self.actualcost = filtered
+                                }
                             }
-                        }
-                }
-                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width:UIScreen.screenWidth-50, height: 35))  .padding(.horizontal,40)
-              //  .offset(y:-14)
+                    }
+                    Text("Profit Margin")
+                        .foregroundColor(Color.white)
+                        .font(.title2)
+                        .bold()
+                    
+                    Stepper("Profit Percentage % :  \(profitD, specifier: "%.2f")", value: $profitD, in: 0...100, step: 5)
+                        .padding()
+                    
+                    
+                }.padding(.bottom,60)
                 
-                
-            
-            
-      
-                Text("Profit Margin")
-                    .foregroundColor(Color.white)
-                    .font(.title2)
-                    .bold()
-                   // .offset(x:-110 , y:58)
-                
-                Stepper("Profit Percentage % :  \(profitD, specifier: "%.2f")", value: $profitD, in: 0...100, step: 5)
-                   // .offset(y:98)
-                    .padding(.horizontal, 40)
-            
-            
-            
-            
-            
-            }.padding(.bottom,60)
+            }.padding()
         }
         .navigationBarTitle("Create Product", displayMode: .inline).foregroundColor(.white)
         

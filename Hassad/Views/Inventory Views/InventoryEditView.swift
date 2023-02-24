@@ -42,32 +42,33 @@ struct InventoryEditView: View {
             
             Color("Prime").edgesIgnoringSafeArea(.all)
             
-            VStack(spacing:30){
-          
-                Text("Material name: \(inventoryname)")
-                    .foregroundColor(Color.white)
-                    .font(.title)
-                    .bold()
-                
-                Text("Material Quantity needed:")
-                    .foregroundColor(Color.white)
-                    .font(.title2)
-                    .bold()
-                  
-                HStack {
-                    TextField("", value: $newquantity, formatter: formatter)                        .foregroundColor(Color.black)
-                        .keyboardType(.asciiCapableNumberPad)
+            HStack{
+                VStack(alignment: .leading, spacing: 20){
                     
                     
-                }
-                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: UIScreen.screenWidth-50, height: 35))
-               // .offset(y:-238)
-                .padding(.horizontal,40)
-                
-                
-            
-            
-        }.padding(.bottom,60)
+                    Text("Material: \(inventoryname)")
+                        .foregroundColor(Color.white)
+                        .font(.title)
+                        .bold()
+                    
+                    Text("Material Quantity needed:")
+                        .foregroundColor(Color.white)
+                        .font(.title2)
+                        .bold()
+                    
+                    HStack {
+                        TextField("", value: $newquantity, formatter: formatter)                        .foregroundColor(Color("text"))
+                            .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
+                            .keyboardType(.asciiCapableNumberPad)
+                        
+                        
+                    }
+                    
+                    
+                    
+                    
+                }.padding(.bottom,60)
+            }.padding()
         }
         
       .navigationBarTitle("Edit Material", displayMode: .inline)

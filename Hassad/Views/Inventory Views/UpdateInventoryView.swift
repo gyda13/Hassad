@@ -38,64 +38,62 @@ struct UpdateInventoryView: View {
             
             Color("Prime").edgesIgnoringSafeArea(.all)
             
-            VStack(spacing:30){
-          
-                Text("Material name")
-                    .foregroundColor(Color.white)
-                    .font(.title2)
-                    .bold()
-                 
-                
-                HStack {
-                    TextField("", text: $inventoryname)
-                        .foregroundColor(Color.black)
-                }
-                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: UIScreen.screenWidth-50, height: 35))
-               // .offset(y:-238)
-                .padding(.horizontal,40)
-          
-          
-                Text("Material Price")
-                    .foregroundColor(Color.white)
-                    .font(.title2)
-                    .bold()
-                  
-                
-                HStack {
-                    TextField("", value: $inventoryprice, formatter: formatter)
-                        .foregroundColor(Color.black)
-                        .keyboardType(.asciiCapableNumberPad)
-                    
-                }
-                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: UIScreen.screenWidth-50, height: 35))
-               // .offset(y:-238)
-                .padding(.horizontal,40)
-                
-            
-            
-            
-            
-          
-                Text("Material Quantity:")
-                    .foregroundColor(Color.white)
-                    .font(.title2)
-                    .bold()
-                  
-                
-                HStack {
-                    TextField("", value: $quantity, formatter: formatter)                        .foregroundColor(Color.black)
-                        .keyboardType(.asciiCapableNumberPad)
+            HStack{
+                VStack(alignment: .leading, spacing: 20){
                     
                     
-                }
-                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: UIScreen.screenWidth-50, height: 35))
-               // .offset(y:-238)
-                .padding(.horizontal,40)
+                    Text("Material name")
+                        .foregroundColor(Color.white)
+                        .font(.title2)
+                        .bold()
+                    
+                    
+                    HStack {
+                        TextField("", text: $inventoryname)
+                            .foregroundColor(Color("text"))
+                            .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
+                    }
+                    
+                    
+                    Text("Material Price")
+                        .foregroundColor(Color.white)
+                        .font(.title2)
+                        .bold()
+                    
+                    
+                    HStack {
+                        TextField("", value: $inventoryprice, formatter: formatter)
+                            .foregroundColor(Color("text"))
+                            .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
+                            .keyboardType(.asciiCapableNumberPad)
+                        
+                    }
+                    
+                    
+                    
+                    
+                    
+                    
+                    Text("Material Quantity:")
+                        .foregroundColor(Color.white)
+                        .font(.title2)
+                        .bold()
+                    
+                    
+                    HStack {
+                        TextField("", value: $quantity, formatter: formatter)                        .foregroundColor(Color("text"))
+                            .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
+                            .keyboardType(.asciiCapableNumberPad)
+                        
+                        
+                    }
+                    
+                    
+                    
+                    
+                }.padding(.bottom,60)
                 
-                
-            
-            
-        }.padding(.bottom,60)
+            }.padding()
         }
        
         
