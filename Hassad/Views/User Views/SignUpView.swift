@@ -67,7 +67,7 @@ struct SignUpView: View {
                 Button("Sign Up") {
                   saveUser()
                 }
-                .disabled(businessname.isEmpty || email.isEmpty || password.isEmpty || password != confirmPassword )
+                .disabled(businessname.isEmpty || email.isEmpty || password.isEmpty || password != confirmPassword || !email.isValidEmail() )
                 .frame(width: 335.0, height: 30.0)
                 .font(.title2)
                 .fontWeight(.bold)
@@ -97,6 +97,7 @@ struct SignUpView: View {
 
 
   func saveUser() {
+      
       let createUser = CreateUserData(businessname: businessname, email: email, password: password)
       ResourceRequest<User>(resourcePath: "users").saveUser(createUser) { result in
           switch result {
@@ -118,6 +119,8 @@ struct SignUpView: View {
               }
           }
       }
+      
+      
   }
 
 
@@ -132,4 +135,11 @@ extension UIScreen{
    static let screenWidth = UIScreen.main.bounds.size.width
    static let screenHeight = UIScreen.main.bounds.size.height
    static let screenSize = UIScreen.main.bounds.size
+}
+extension String {
+    func isValidEmail() -> Bool {
+        // here, `try!` will always succeed because the pattern is valid
+        let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive)
+        return regex.firstMatch(in: self, options: [], range: NSRange(location: 0, length: count)) != nil
+    }
 }

@@ -36,12 +36,16 @@ struct ProductView: View {
                 } label: {
                     
                     VStack(alignment: .leading){
-                        Image(systemName: "ellipsis")
-                            .foregroundColor(.white)
+                        HStack {
+                            Spacer()
+                            Image(systemName: "ellipsis")
+                                .foregroundColor(.white)
+                        }
                         Text(" \( product.productname)" ).font(.title2).bold().foregroundColor(.white)
                         Text(" \(String(format: "%.2f", product.totalprice)) SR ").font(.title3).foregroundColor(.white)
                         
                     }.frame(width: 345, height: 100)
+                        .padding(.horizontal)
                 }
             }
             .onDelete(perform: {IndexSet in

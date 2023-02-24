@@ -35,12 +35,17 @@ struct InventoryView: View {
                     modal = .update(inventory)
                 } label: {
                     VStack(alignment: .leading){
+                        HStack {
+                            Spacer()
+                            Image(systemName: "ellipsis")
+                                .foregroundColor(.white)
+                        }
                         Text("Material: " + inventory.inventoryname).font(.title2).bold().foregroundColor(.white)
                         Text("Material Price: \(String(format: "%.2f",inventory.inventoryprice))").font(.title3).foregroundColor(.white)
                         Text("Material Quantity: \(inventory.quantity)").font(.title3).foregroundColor(.white)
                      
                         
-                    }.frame(width: 345, height: 100)
+                    }.frame(width: 345, height: 100)  .padding(.horizontal).padding(.top,10)
                 }
             }
             .onDelete(perform: {IndexSet in
