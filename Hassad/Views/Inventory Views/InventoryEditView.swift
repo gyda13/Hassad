@@ -56,7 +56,7 @@ struct InventoryEditView: View {
                   
                 HStack {
                     TextField("", value: $newquantity, formatter: formatter)                        .foregroundColor(Color.black)
-                        .keyboardType(.asciiCapable)
+                        .keyboardType(.asciiCapableNumberPad)
                     
                     
                 }

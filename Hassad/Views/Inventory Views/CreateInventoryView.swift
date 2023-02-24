@@ -51,7 +51,7 @@ struct CreateInventoryView: View {
                 HStack {
                     TextField("", text: $inventoryprice)
                         .foregroundColor(Color.black)
-                        .keyboardType(.numberPad)
+                        .keyboardType(.asciiCapableNumberPad)
                     
                         .onReceive(Just(inventoryprice)) { newValue in
                             let filtered = newValue.filter { "0123456789".contains($0) }
@@ -77,7 +77,7 @@ struct CreateInventoryView: View {
                     TextField("", text: $quantity)
                         .foregroundColor(Color.black)
                     
-                        .keyboardType(.numberPad)
+                        .keyboardType(.asciiCapableNumberPad)
                     
                         .onReceive(Just(quantity)) { newValue in
                             let filtered = newValue.filter { "0123456789".contains($0) }

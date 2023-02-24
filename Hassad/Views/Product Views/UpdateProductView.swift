@@ -76,7 +76,7 @@ struct UpdateProductView: View {
                 HStack {
                     TextField("", value: $laborcost, formatter: formatter)
                         .foregroundColor(Color.black)
-                        .keyboardType(.asciiCapable)
+                        .keyboardType(.asciiCapableNumberPad)
                     
                 }
                 .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: UIScreen.screenWidth-50, height: 35))
@@ -96,7 +96,7 @@ struct UpdateProductView: View {
                 
                 HStack {
                     TextField("", value: $actualcost, formatter: formatter)                        .foregroundColor(Color.black)
-                        .keyboardType(.asciiCapable)
+                        .keyboardType(.asciiCapableNumberPad)
                     
                     
                 }

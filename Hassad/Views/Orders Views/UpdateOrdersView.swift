@@ -72,7 +72,7 @@ struct UpdateOrdersView: View {
                     .font(.title2)
                 TextField("Product Quantity:", value: $newquantity, formatter: formatter)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .keyboardType(.numberPad)
+                    .keyboardType(.asciiCapableNumberPad)
                     .padding()
                 
             

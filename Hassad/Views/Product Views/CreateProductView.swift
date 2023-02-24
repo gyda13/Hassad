@@ -66,7 +66,7 @@ struct CreateProductView: View {
                        // .padding()
                        // .offset(x:10)
                     
-                        .keyboardType(.numberPad)
+                        .keyboardType(.asciiCapableNumberPad)
                     
                         .onReceive(Just(laborcost)) { newValue in
                             let filtered = newValue.filter { "0123456789".contains($0) }
@@ -93,8 +93,7 @@ struct CreateProductView: View {
                        // .padding()
                         .offset(x:10)
                     
-                        .keyboardType(.numberPad)
-                    
+                        .keyboardType(.asciiCapableNumberPad)
                         .onReceive(Just(actualcost)) { newValue in
                             let filtered = newValue.filter { "0123456789".contains($0) }
                             if filtered != newValue {

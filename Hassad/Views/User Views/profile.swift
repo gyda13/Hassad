@@ -11,7 +11,7 @@ struct profile: View {
     
     @EnvironmentObject var auth: Auth
     @State private var showingErrorAlert = false
-    @State private var users: User? = nil
+    @State private var user: User? = nil
     @AppStorage("key") var uinew = ""
     
      
@@ -46,7 +46,7 @@ struct profile: View {
             
                       VStack{
                         
-                            Text(users?.businessname ?? "no")
+                            Text(user?.businessname ?? "no")
                                     .font(.title2)
                                     .fontWeight(.bold)
                                     .foregroundColor(Color.white)
@@ -56,7 +56,7 @@ struct profile: View {
                                     .fontWeight(.thin)
                                     .foregroundColor(Color.white)
                                     .offset(x: 0, y: -15)
-                          Text(users?.email ?? "no")
+                          Text(user?.email ?? "no")
                                     .font(.title2)
                                     .fontWeight(.bold)
                                     .foregroundColor(Color.white)
@@ -109,9 +109,9 @@ struct profile: View {
                     DispatchQueue.main.async {
 
                     }
-                case .success(let users):
+                case .success(let u):
                     DispatchQueue.main.async {
-                        self.users = users
+                        self.user = u
                     }
 
                 }
@@ -125,9 +125,9 @@ struct profile: View {
                     DispatchQueue.main.async {
 
                     }
-                case .success(let users):
+                case .success(let u):
                     DispatchQueue.main.async {
-                        self.users = users
+                        self.user = u
                     }
 
                 }
