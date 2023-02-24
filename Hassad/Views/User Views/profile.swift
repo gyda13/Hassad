@@ -27,7 +27,7 @@ struct profile: View {
                 VStack {
                     Rectangle()
                         .frame(width: UIScreen.screenWidth, height:  UIScreen.screenHeight/2)
-                        .foregroundColor(.accentColor)
+                        .foregroundColor(Color("personColor"))
                     .ignoresSafeArea()
                     Spacer()
                 }
@@ -36,11 +36,11 @@ struct profile: View {
                         Image(systemName: "person.circle.fill")
                             .resizable()
                             .frame(width: 109.0, height: 110.0)
-                            .foregroundColor(Color(UIColor(named: "personColor")!))
+                            .foregroundColor(Color.accentColor)
                             .padding(4)
                             .overlay(
                             Circle()
-                                .stroke(Color("personColor"), lineWidth: 1)
+                                .stroke(Color.accentColor, lineWidth: 1)
                             )
                             .padding(.top,30)
             

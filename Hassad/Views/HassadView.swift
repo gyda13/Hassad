@@ -114,6 +114,7 @@ struct HassadView: View {
                                     }
                                 }
                             }.frame(height: 240)
+                                .padding(.horizontal)
                         }
                     } else {
                         GroupBox ( "Product Quintity Chart") {
