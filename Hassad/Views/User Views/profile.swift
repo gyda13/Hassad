@@ -11,15 +11,15 @@ struct profile: View {
     
     @EnvironmentObject var auth: Auth
     @State private var showingErrorAlert = false
-    @State private var users: [User] = []
+    @State private var users: User? = nil
     @AppStorage("key") var uinew = ""
     
      
      init(auth: Auth) {
-         if _uinew.wrappedValue == ""{
-             _uinew.wrappedValue = "\(auth.ui!)"
-
-         }
+//         if _uinew.wrappedValue == ""{
+//             _uinew.wrappedValue = "\(auth.ui!)"
+//
+//         }
      }
     var body: some View {
         NavigationView{
@@ -44,9 +44,9 @@ struct profile: View {
                             )
                             .padding(.top,30)
             
-                        ForEach(users, id: \.id){
-                            user in
-                            Text("\(user.businessname)")
+                      VStack{
+                        
+                            Text(users?.businessname ?? "no")
                                     .font(.title2)
                                     .fontWeight(.bold)
                                     .foregroundColor(Color.white)
@@ -56,7 +56,7 @@ struct profile: View {
                                     .fontWeight(.thin)
                                     .foregroundColor(Color.white)
                                     .offset(x: 0, y: -15)
-                                Text("\(user.email)")
+                          Text(users?.email ?? "no")
                                     .font(.title2)
                                     .fontWeight(.bold)
                                     .foregroundColor(Color.white)
@@ -98,16 +98,16 @@ struct profile: View {
     }
     
     
-    func getUserInfo() {
-
+   func getUserInfo() {
+        
         if let a = auth.ui{
 
-            UserRequest<User>(userID: a).getUserInfo{
+            UserRequest<User>(userID: a).getOneUserInfo{
                 userRequest in
                 switch userRequest {
                 case .failure:
                     DispatchQueue.main.async {
-                        self.showingErrorAlert = true
+
                     }
                 case .success(let users):
                     DispatchQueue.main.async {
@@ -118,12 +118,12 @@ struct profile: View {
             }
         } else {
 
-            UserRequest<User>(userID: UUID(uuidString: self.uinew)!).getUserInfo{
+            UserRequest<User>(userID:UUID(uuidString: self.uinew)!).getOneUserInfo{
                 userRequest in
                 switch userRequest {
                 case .failure:
                     DispatchQueue.main.async {
-                        self.showingErrorAlert = true
+
                     }
                 case .success(let users):
                     DispatchQueue.main.async {
@@ -134,6 +134,7 @@ struct profile: View {
             }
         }
     }
+
 }
 
 //struct profile_Previews: PreviewProvider {

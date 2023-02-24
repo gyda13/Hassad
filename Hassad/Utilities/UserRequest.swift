@@ -38,6 +38,21 @@ struct UserRequest<ResourceType> where ResourceType: Codable {
         dataTask.resume()
     }
     
+    func getOneUserInfo(completion: @escaping(Result<ResourceType, ResourceRequestError>) -> Void) {
+        let dataTask = URLSession.shared.dataTask(with: resourceURL) { data, _, _ in guard let jsonData = data else {
+            completion(.failure(.noData))
+            return
+        }
+            do{
+                let resources = try JSONDecoder().decode(ResourceType.self, from: jsonData)
+                completion(.success(resources))
+            } catch {
+                completion(.failure(.decodingError))
+            }
+        }
+        
+        dataTask.resume()
+    }
 
     
 

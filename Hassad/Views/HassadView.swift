@@ -11,7 +11,7 @@ struct HassadView: View {
 
     @EnvironmentObject var auth: Auth
     @State private var products: [Product] = []
-    @State private var users: [User] = []
+  //  @State private var users: User? = nil
     @State private var showingProductErrorAlert = false
     @AppStorage("key") var uinew = ""
     @State var selection: String = "ProductProfits"
@@ -46,11 +46,13 @@ struct HassadView: View {
             
             ScrollView{
                 VStack {
-                    ForEach(users, id: \.id){
-                        user in
-                        Text("\(user.businessname)")
-                            .foregroundColor(.black)
-                    }
+//                    ForEach(users, id: \.id){
+//                        user in
+//                        Text("\(user.businessname)")
+//                            .foregroundColor(.black)
+//                    }
+//                    Text(users?.businessname ?? "none").foregroundColor(.red)
+//                    Text(users?.email ?? "none").foregroundColor(.red)
                     HStack {
                         Text("\(String(format: "%.2f", TotalProfit()))")
                             .foregroundColor(.white)
@@ -119,7 +121,7 @@ struct HassadView: View {
         }
             .onAppear{
                 loadData()
-                getUserInfo()
+               // getUserInfo()
             }
     }
  
@@ -162,42 +164,6 @@ struct HassadView: View {
     
     
  
-    func getUserInfo() {
-
-        if let a = auth.ui{
-
-            UserRequest<User>(userID: a).getUserInfo{
-                userRequest in
-                switch userRequest {
-                case .failure:
-                    DispatchQueue.main.async {
-
-                    }
-                case .success(let users):
-                    DispatchQueue.main.async {
-                        self.users = users
-                    }
-
-                }
-            }
-        } else {
-
-            UserRequest<User>(userID:UUID(uuidString: self.uinew)!).getUserInfo{
-                userRequest in
-                switch userRequest {
-                case .failure:
-                    DispatchQueue.main.async {
-
-                    }
-                case .success(let users):
-                    DispatchQueue.main.async {
-                        self.users = users
-                    }
-
-                }
-            }
-        }
-    }
     
 }
 
