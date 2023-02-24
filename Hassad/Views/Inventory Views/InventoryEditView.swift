@@ -38,22 +38,39 @@ struct InventoryEditView: View {
 
   var body: some View {
     NavigationView {
-        VStack{
+        ZStack{
             
-           Text("Material Name:\(inventoryname)")
+            Color("Prime").edgesIgnoringSafeArea(.all)
+            
+            VStack(spacing:30){
           
-         
-            TextField("Quintity:", value: $newquantity, formatter: formatter)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .keyboardType(.numberPad)
-                .padding()
+                Text("Material name: \(inventoryname)")
+                    .foregroundColor(Color.white)
+                    .font(.title)
+                    .bold()
+                
+                Text("Material Quantity needed:")
+                    .foregroundColor(Color.white)
+                    .font(.title2)
+                    .bold()
+                  
+                HStack {
+                    TextField("", value: $newquantity, formatter: formatter)                        .foregroundColor(Color.black)
+                        .keyboardType(.asciiCapable)
+                    
+                    
+                }
+                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: UIScreen.screenWidth-50, height: 35))
+               // .offset(y:-238)
+                .padding(.horizontal,40)
+                
+                
             
-     
-  
-           
+            
+        }.padding(.bottom,60)
         }
         
-      .navigationBarTitle("Edit Inventory", displayMode: .inline)
+      .navigationBarTitle("Edit Material", displayMode: .inline)
       .navigationBarItems(
         leading:
           Button(
@@ -65,7 +82,12 @@ struct InventoryEditView: View {
             }),
         trailing:
           Button(action: updateInvetory) {
-            Text("Save")
+              if(newquantity != 0 ){
+                  Text("Save")
+                      .foregroundColor(.white)
+              } else {
+                  Text("Save")
+              }
           }.disabled(newquantity == 0)
             
       )

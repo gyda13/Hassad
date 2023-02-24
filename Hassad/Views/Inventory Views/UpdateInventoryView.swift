@@ -34,27 +34,73 @@ struct UpdateInventoryView: View {
 
   var body: some View {
     NavigationView {
-        VStack{
-            TextField("Material Name:", text: $inventoryname)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-          
-            TextField("Material Price:", value: $inventoryprice, formatter: formatter)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .keyboardType(.numberPad)
-                .padding()
-         
-            TextField("Material Quintity:", value: $quantity, formatter: formatter)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .keyboardType(.numberPad)
-                .padding()
+        ZStack{
             
-     
-  
-           
+            Color("Prime").edgesIgnoringSafeArea(.all)
+            
+            VStack(spacing:30){
+          
+                Text("Material name")
+                    .foregroundColor(Color.white)
+                    .font(.title2)
+                    .bold()
+                 
+                
+                HStack {
+                    TextField("", text: $inventoryname)
+                        .foregroundColor(Color.black)
+                }
+                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: UIScreen.screenWidth-50, height: 35))
+               // .offset(y:-238)
+                .padding(.horizontal,40)
+          
+          
+                Text("Material Price")
+                    .foregroundColor(Color.white)
+                    .font(.title2)
+                    .bold()
+                  
+                
+                HStack {
+                    TextField("", value: $inventoryprice, formatter: formatter)
+                        .foregroundColor(Color.black)
+                        .keyboardType(.asciiCapable)
+                    
+                }
+                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: UIScreen.screenWidth-50, height: 35))
+               // .offset(y:-238)
+                .padding(.horizontal,40)
+                
+            
+            
+            
+            
+          
+                Text("Material Quantity:")
+                    .foregroundColor(Color.white)
+                    .font(.title2)
+                    .bold()
+                  
+                
+                HStack {
+                    TextField("", value: $quantity, formatter: formatter)                        .foregroundColor(Color.black)
+                        .keyboardType(.asciiCapable)
+                    
+                    
+                }
+                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white).frame(width: UIScreen.screenWidth-50, height: 35))
+               // .offset(y:-238)
+                .padding(.horizontal,40)
+                
+                
+            
+            
+        }.padding(.bottom,60)
         }
+       
         
-      .navigationBarTitle("Edit Inventory", displayMode: .inline)
+      .navigationBarTitle("Edit Material", displayMode: .inline)
+      .foregroundColor(.white)
       .navigationBarItems(
         leading:
           Button(
@@ -66,12 +112,12 @@ struct UpdateInventoryView: View {
             }),
         trailing:
           Button(action: updateInvetory) {
-            Text("Save")
+              Text("Save")
+                  .foregroundColor(.white)
           }
             .disabled(inventoryname.isEmpty || inventoryprice.isZero)
       )
     }.modifier(ResponsiveNavigationStyle())
-    .presentationDetents([.medium])
     .alert(isPresented: $showingInventorySaveErrorAlert) {
       Alert(title: Text("Error"), message: Text("There was a problem saving the inventory"))
     }

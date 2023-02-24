@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class User: Codable, Identifiable {
+final class User: Codable {
   var id: UUID?
   var businessname: String
   var email: String

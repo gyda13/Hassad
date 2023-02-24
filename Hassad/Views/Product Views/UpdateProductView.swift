@@ -136,7 +136,10 @@ struct UpdateProductView: View {
             }),
         trailing:
           Button(action: updateProduct) {
-            Text("Save")
+           
+                  Text("Save")
+                      .foregroundColor(.white)
+             
           }
             .disabled(productname.isEmpty || laborcost.isZero || actualcost.isZero
                       || totalprice.isZero || profitD == 0)

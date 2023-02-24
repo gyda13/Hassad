@@ -9,7 +9,7 @@
 import Foundation
 
 struct ResourceRequest<ResourceType> where ResourceType: Codable {
-    let baseURL = "http://127.0.0.1:8080/api/"
+    let baseURL = "http://localhost:8080/api/"
     let resourceURL: URL
     
     init(resourcePath: String) {
@@ -37,10 +37,6 @@ struct ResourceRequest<ResourceType> where ResourceType: Codable {
         dataTask.resume()
     }
     
-
- 
-    
-
     
     
     func saveUser<CreateType>(_ saveData: CreateType,  completion: @escaping

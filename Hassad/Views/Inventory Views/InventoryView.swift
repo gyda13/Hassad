@@ -35,7 +35,7 @@ struct InventoryView: View {
                     modal = .update(inventory)
                 } label: {
                     VStack(alignment: .leading){
-                        Text("Material Name: " + inventory.inventoryname).font(.title2).bold().foregroundColor(.white)
+                        Text("Material: " + inventory.inventoryname).font(.title2).bold().foregroundColor(.white)
                         Text("Material Price: \(String(format: "%.2f",inventory.inventoryprice))").font(.title3).foregroundColor(.white)
                         Text("Material Quantity: \(inventory.quantity)").font(.title3).foregroundColor(.white)
                      

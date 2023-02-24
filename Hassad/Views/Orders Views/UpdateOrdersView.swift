@@ -41,27 +41,46 @@ struct UpdateOrdersView: View {
 
   var body: some View {
     NavigationView {
-        VStack{
-          Text("Quintity:")
-            TextField("Quintity:", value: $newquantity, formatter: formatter)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .keyboardType(.numberPad)
-                .padding()
-            
-            Button(
-              action: {
-                showingSheet.toggle()
-              }, label: {
-                  Image(systemName:"archivebox")
-                      
-                     
-              })
-            
-           
-        }   .sheet(isPresented: $showingSheet) {
-            InventoryForProductsView(auth: auth)
-           }
         
+        ZStack{
+            
+            Color("Prime").edgesIgnoringSafeArea(.all)
+            VStack{
+                
+                Text("Materials used:")
+                    .foregroundColor(.white)
+                    .bold()
+                    .font(.title2)
+                ZStack{
+                    RoundedRectangle(cornerRadius: 25)
+                        .fill(.white)
+                        .frame(width: 100, height: 100)
+                    Button(
+                        action: {
+                            showingSheet.toggle()
+                        }, label: {
+                            Image(systemName:"archivebox")
+                                .font(.system(size: 60))
+                                
+                            
+                        })
+                }
+                
+                Text("Product Quantity:")
+                    .foregroundColor(.white)
+                    .bold()
+                    .font(.title2)
+                TextField("Product Quantity:", value: $newquantity, formatter: formatter)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .keyboardType(.numberPad)
+                    .padding()
+                
+            
+                
+            }   .sheet(isPresented: $showingSheet) {
+                InventoryForProductsView(auth: auth)
+            }
+        }
       .navigationBarTitle("Edit Product", displayMode: .inline)
       .navigationBarItems(
         leading:
@@ -74,7 +93,12 @@ struct UpdateOrdersView: View {
             }),
         trailing:
           Button(action: updateProduct) {
-            Text("Save")
+              if(newquantity != 0 ) {
+                  Text("Save")
+                      .foregroundColor(.white)
+              } else {
+                  Text("Save")
+              }
           }
             .disabled( newquantity == 0)
       )
@@ -84,7 +108,6 @@ struct UpdateOrdersView: View {
     }
   }
     
-
   func updateProduct() {
       let data = CreateProductData(productname: self.productname, laborcost: self.laborcost, actualcost: self.actualcost, totalprice: ((self.actualcost + self.laborcost) + (self.actualcost + self.laborcost) * (self.profitD) / 100.0), profit: profit * Double(quantity + newquantity), quantity: quantity + newquantity)
      

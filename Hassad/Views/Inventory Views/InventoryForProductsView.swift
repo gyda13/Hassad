@@ -58,13 +58,14 @@ struct InventoryForProductsView: View {
         }.listStyle(.insetGrouped)
        
         .navigationBarTitle("Inventory", displayMode: .inline)
+        .foregroundColor(.black)
         .navigationBarItems(
-          leading:
+            trailing:
             Button(
               action: {
                 presentationMode.wrappedValue.dismiss()
               }, label: {
-                Text("Cancel")
+                Text("Done")
                   .fontWeight(Font.Weight.regular)
               }))
 

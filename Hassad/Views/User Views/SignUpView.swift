@@ -79,10 +79,10 @@ struct SignUpView: View {
                 NavigationLink(destination: LoginView()) {
                     Text("already have an account? Log In")
                         .foregroundColor(.accentColor)
-                }
+                }.navigationBarBackButtonHidden(true)
             }
           .navigationBarTitle("SignUp")
-
+          .navigationBarBackButtonHidden(true)
 
         .alert(isPresented: $showingUserSaveErrorAlert) {
           Alert(title: Text("Error"), message: Text("There was a problem saving the user"))

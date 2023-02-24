@@ -67,7 +67,7 @@ struct CreateInventoryView: View {
             
             
         
-                Text("Material Quantity")
+                Text("Material quantity")
                     .foregroundColor(Color.white)
                     .font(.title2)
                     .bold()
@@ -91,7 +91,7 @@ struct CreateInventoryView: View {
             
             }.padding(.bottom,90)
         }
-      .navigationBarTitle("Create Inventory", displayMode: .inline).foregroundColor(.white)
+      .navigationBarTitle("Create Material", displayMode: .inline).foregroundColor(.white)
       .navigationBarItems(
         leading:
           Button(
@@ -103,13 +103,13 @@ struct CreateInventoryView: View {
             }),
         trailing:
           Button(action: saveInventory) {
-              if(inventoryname != "" && inventoryprice != "" ) {
+              if(inventoryname != "" && inventoryprice != "" && quantity != "") {
                   Text("Save")
                       .foregroundColor(.white)
               } else {
                   Text("Save")
               }
-          } .disabled(inventoryname.isEmpty || inventoryprice.isEmpty)
+          } .disabled(inventoryname.isEmpty || inventoryprice.isEmpty || quantity.isEmpty)
       )
     }.modifier(ResponsiveNavigationStyle())
     .alert(isPresented: $showingInventorySaveErrorAlert) {
