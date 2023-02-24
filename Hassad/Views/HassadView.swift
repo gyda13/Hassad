@@ -23,6 +23,12 @@ struct HassadView: View {
          }
      }
     
+    let formatter: NumberFormatter = {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .decimal
+            return formatter
+        }()
+    
     func TotalProfit() -> Double {
         var total = 0.0
         for p in products{
@@ -66,8 +72,8 @@ struct HassadView: View {
                             HStack(alignment: .bottom, spacing: 35){
                                
                                 VStack{
-                              
-                                    Text("\(TotalProfit())").font(.largeTitle).bold()
+                         
+                                    Text("\(TotalProfit().formatted())").font(.largeTitle).bold()
                                         .padding(.bottom,4)
                                     Text("Profits").bold()
                                 }.foregroundColor(.white)
@@ -125,7 +131,7 @@ struct HassadView: View {
                         }
                     }
                     
-                }
+                }.padding(.top,25)
             }
             .toolbar{
                 NavigationLink(destination: profile(auth: auth)) {
