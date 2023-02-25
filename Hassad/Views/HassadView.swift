@@ -96,14 +96,7 @@ struct HassadView: View {
                             }
                         }
                         
-                        ZStack {
-                            Rectangle()
-                                .frame(width: 344, height: 50)
-                                .mask(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                                .foregroundColor(Color("darkBlue"))
-                            ShareLink("PDF Business Summery", item: render())
-                                .foregroundColor(Color("text"))
-                        }
+                    
                     }
                     VStack(spacing: 15){
                         Picker("" , selection: $selection){
@@ -151,7 +144,14 @@ struct HassadView: View {
                             }.padding(.horizontal,20)
                             
                         }
-                    
+                        ZStack {
+                            Rectangle()
+                                .frame(width: 344, height: 50)
+                                .mask(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                                .foregroundColor(Color("darkBlue"))
+                            ShareLink("PDF Business Summery", item: render())
+                                .foregroundColor(Color("text"))
+                        }
                     }
                 }.padding(.top,25)
             }
