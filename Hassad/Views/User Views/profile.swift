@@ -27,7 +27,7 @@ struct profile: View {
                 VStack {
                     Rectangle()
                         .frame(width: UIScreen.screenWidth, height:  UIScreen.screenHeight/2)
-                        .foregroundColor(Color("personColor"))
+                        .foregroundColor(.gray.opacity(0.5))
                     .ignoresSafeArea()
                     Spacer()
                 }

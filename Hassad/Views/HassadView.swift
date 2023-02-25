@@ -68,7 +68,7 @@ struct HassadView: View {
                             Rectangle()
                                 .frame(width: 344, height: 150)
                                 .mask(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                                .foregroundColor(Color(red: 0.466, green: 0.552, blue: 0.661))
+                                .foregroundColor(Color.accentColor)
                             VStack {
                                 Text(Date().formatted(date: .complete, time: .omitted))
                                     .foregroundColor(.white)
@@ -148,9 +148,9 @@ struct HassadView: View {
                             Rectangle()
                                 .frame(width: 344, height: 50)
                                 .mask(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                                .foregroundColor(Color("darkBlue"))
+                                .foregroundColor(Color.accentColor)
                             ShareLink("PDF Business Summery", item: render())
-                                .foregroundColor(Color("text"))
+                                .foregroundColor(Color.white)
                         }
                     }
                 }.padding(.top,25)
