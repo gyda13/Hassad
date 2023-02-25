@@ -53,8 +53,9 @@ struct HassadView: View {
         NavigationView {
             
             ScrollView{
-                VStack(spacing: 40){
+                VStack(spacing: 30){
                     VStack (spacing: 10){
+                       
                         HStack {
                             Text(user?.businessname ?? "no")
                                 .font(.title)
@@ -93,6 +94,15 @@ struct HassadView: View {
                                     
                                 }
                             }
+                        }
+                        
+                        ZStack {
+                            Rectangle()
+                                .frame(width: 344, height: 50)
+                                .mask(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                                .foregroundColor(Color("darkBlue"))
+                            ShareLink("PDF Business Summery", item: render())
+                                .foregroundColor(Color("text"))
                         }
                     }
                     VStack(spacing: 15){
@@ -141,6 +151,7 @@ struct HassadView: View {
                             }.padding(.horizontal,20)
                             
                         }
+                    
                     }
                 }.padding(.top,25)
             }
@@ -237,8 +248,88 @@ struct HassadView: View {
          }
      }
     
-    
- 
+    func render() -> URL {
+        let renderer = ImageRenderer(content:
+        ZStack{
+            Color("Prime").edgesIgnoringSafeArea(.all)
+            
+            VStack{
+                HStack{
+                    Text(user?.businessname ?? "no name")
+                        .font(.title2)
+                        .foregroundColor(.white)
+                    Text("Summery").font(.title2)
+                        .foregroundColor(.white)
+                }
+                Text("Total profits | \(String(format: "%.0f", TotalProfit())) SR")
+                Text("Total Orders  | \(TotalOrders())")
+               
+                GroupBox ( "Products Profits Chart") {
+                    Chart {
+                        ForEach(products, id: \.id){
+                            product in
+                            if product.quantity != 0 {
+                                BarMark(
+                                    x: .value("Product Name", product.productname),
+                                    y: .value("Product Profits", product.profit)
+                                ).foregroundStyle(Color.pink.gradient)
+                                    .annotation(position: .top) {
+                                  Text("\(String(format: "%.0f", product.profit)) SR")
+                                    .foregroundColor(Color.gray)
+                                  .font(.system(size: 12, weight: .bold))
+                        }
+                            }
+                         
+                        }
+                    }.frame(height: 100)
+                }.padding(.horizontal,20)
+                GroupBox ( "Products Quantity Chart") {
+                    Chart {
+                        ForEach(products, id: \.id){
+                            product in
+                            if product.quantity != 0 {
+                                BarMark(
+                                    x: .value("Product Name", product.productname),
+                                    y: .value("Product Quantity", product.quantity)
+                                ) .foregroundStyle(Color.blue.gradient)
+                            }
+                        }
+                    }.frame(height: 100)
+                }.padding(.horizontal,20)
+                
+                VStack{
+                    ForEach(products, id: \.id){
+                        product in
+                        Text("Product name: \(product.productname)")
+                        Text("Product quantity: \(product.quantity)")
+                        Text("Product profits: \(String(format: "%.0f", product.profit)) SR")
+                        Text("-------------------------------------")
+                    }
+                }
+                
+            }
+        }
+        )
+
+        let url = URL.documentsDirectory.appending(path: "output.pdf")
+
+        renderer.render { size, context in
+            var box = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+
+            guard let pdf = CGContext(url as CFURL, mediaBox: &box, nil) else {
+                return
+            }
+
+            pdf.beginPDFPage(nil)
+
+            context(pdf)
+            
+            pdf.endPDFPage()
+            pdf.closePDF()
+        }
+
+        return url
+    }
     
 }
 
