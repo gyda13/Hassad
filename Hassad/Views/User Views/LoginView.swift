@@ -13,7 +13,8 @@ struct LoginView: View {
   @State var password = ""
   @State private var showingLoginErrorAlert = false
   @EnvironmentObject var auth: Auth
-   
+  @State var showsignUp = false
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -68,8 +69,9 @@ struct LoginView: View {
                         
                         Text("Don't Have an Account?")
                             .foregroundColor(Color(.gray))
-                        NavigationLink(destination: SignUpView()) {
+                        NavigationLink(destination: SignUpView().navigationBarBackButtonHidden(true)) {
                             Text("Sign up")
+                            
                                 .fontWeight(.bold)
                                 .foregroundColor(Color("text"))
                             

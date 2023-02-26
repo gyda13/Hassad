@@ -25,7 +25,7 @@ struct SignUpView: View {
           Color("AccentColor").ignoresSafeArea()
           RoundedRectangle(cornerRadius: 33, style: .circular)
               .fill(Color("defultColor"))
-              .frame(width: UIScreen.screenWidth, height: 666)
+              .frame(width: UIScreen.screenWidth, height: 696)
               .offset(x: 0, y: 130)
           VStack(spacing: 35){
               Spacer()
@@ -92,7 +92,7 @@ struct SignUpView: View {
                   
                   Text("Already have an Account?")
                       .foregroundColor(Color(.gray))
-                  NavigationLink(destination: LoginView()) {
+                  NavigationLink(destination: LoginView().navigationBarBackButtonHidden(true)) {
                       Text("Log In")
                           .fontWeight(.bold)
                           .foregroundColor(Color("text"))

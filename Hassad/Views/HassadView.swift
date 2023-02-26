@@ -66,7 +66,7 @@ struct HassadView: View {
                         
                         ZStack {
                             Rectangle()
-                                .frame(width: 344, height: 150)
+                                .frame(width: UIScreen.screenWidth - 40 , height: 150)
                                 .mask(RoundedRectangle(cornerRadius: 8, style: .continuous))
                                 .foregroundColor(Color.accentColor)
                             VStack {
@@ -146,7 +146,7 @@ struct HassadView: View {
                         }
                         ZStack {
                             Rectangle()
-                                .frame(width: 344, height: 50)
+                                .frame(width: UIScreen.screenWidth - 40, height: 50)
                                 .mask(RoundedRectangle(cornerRadius: 8, style: .continuous))
                                 .foregroundColor(Color.accentColor)
                             ShareLink("PDF Business Summery", item: render())
