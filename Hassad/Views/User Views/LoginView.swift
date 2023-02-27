@@ -64,7 +64,6 @@ struct LoginView: View {
                     .background(Color("darkBlue"))
                     .cornerRadius(17.5)
                     
-                   // .offset(x: 0,y: 25)
                     HStack{
                         
                         Text("Don't Have an Account?")

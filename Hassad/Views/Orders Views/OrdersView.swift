@@ -24,46 +24,49 @@ struct OrdersView: View {
     }
     var body: some View {
       NavigationView {
-        List {
-            ForEach(products, id: \.id){
-                product in
-           
-                         
-                Button {
-                    modal = .update(product)
-                } label: {
-                    VStack(alignment: .leading){
-                        HStack {
-                            VStack{
-                                Text("   \(product.productname)").font(.title2).bold().foregroundColor(.white)
-                                Text("")
-                                Text("\(String(format: "%.2f", product.totalprice)) SR ").font(.title3).foregroundColor(.white)
-                            }
-                            Spacer()
-                            Image(systemName: "plus.circle")
-                                .foregroundColor(.white)
-                                .font(.system(size: 30))
-                                .padding()
-                        }.padding()
-                    }.frame(width: 344, height: 100)
-                }
-            }
-            .onDelete(perform: {IndexSet in
-                for index in IndexSet {
-                    if let id = products[index].id {
-                        let productDetailRequester = ProductRequest(productID: id)
-                        productDetailRequester.delete(auth: auth)
-                    }
-                }
-                products.remove(atOffsets: IndexSet)
-            })
-            .listRowBackground(Color.clear)
-            .background(RoundedRectangle(cornerRadius: 17).fill(Color.accentColor))
-            .listRowSeparator(.hidden)
-                .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
-        }.listStyle(.insetGrouped)
-       
-        .navigationTitle("Set Order")
+          ZStack{
+              Color("defultColor").edgesIgnoringSafeArea(.all)
+              List {
+                  ForEach(products, id: \.id){
+                      product in
+                      
+                      
+                      Button {
+                          modal = .update(product)
+                      } label: {
+                          VStack(alignment: .leading){
+                              HStack {
+                                  VStack{
+                                      Text("   \(product.productname)").font(.title2).bold().foregroundColor(.white)
+                                      Text("")
+                                      Text("\(String(format: "%.2f", product.totalprice)) SR ").font(.title3).foregroundColor(.white)
+                                  }
+                                  Spacer()
+                                  Image(systemName: "plus.circle")
+                                      .foregroundColor(.white)
+                                      .font(.system(size: 30))
+                                      .padding()
+                              }.padding()
+                          }.frame(width: 344, height: 100)
+                      }
+                  }
+                  .onDelete(perform: {IndexSet in
+                      for index in IndexSet {
+                          if let id = products[index].id {
+                              let productDetailRequester = ProductRequest(productID: id)
+                              productDetailRequester.delete(auth: auth)
+                          }
+                      }
+                      products.remove(atOffsets: IndexSet)
+                  })
+                  .listRowBackground(Color.clear)
+                  .background(RoundedRectangle(cornerRadius: 17).fill(Color.accentColor))
+                  .listRowSeparator(.hidden)
+                  .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+              }.listStyle(.insetGrouped)
+              
+                  .navigationTitle("Set Order")
+          }
       }
       .modifier(ResponsiveNavigationStyle())
         
