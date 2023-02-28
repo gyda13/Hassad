@@ -118,8 +118,9 @@ struct SignUpView: View {
         .alert(isPresented: $passwordErrorAlert) {
             Alert(title: Text("Error"), message: Text("Password do not match"))
     }
-          
-          
+        .onTapGesture {
+            self.endTextEditing()
+        }
           
       }
       
@@ -164,6 +165,8 @@ struct SignUpView_Previews: PreviewProvider {
       SignUpView()
   }
 }
+
+
 extension UIScreen{
    static let screenWidth = UIScreen.main.bounds.size.width
    static let screenHeight = UIScreen.main.bounds.size.height
@@ -176,3 +179,11 @@ extension String {
         return regex.firstMatch(in: self, options: [], range: NSRange(location: 0, length: count)) != nil
     }
 }
+
+extension View {
+  func endTextEditing() {
+    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder),
+                                    to: nil, from: nil, for: nil)
+  }
+}
+

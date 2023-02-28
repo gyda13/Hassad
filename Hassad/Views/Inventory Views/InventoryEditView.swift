@@ -57,9 +57,10 @@ struct InventoryEditView: View {
                         .bold()
                     
                     HStack {
-                        TextField("", value: $newquantity, formatter: formatter)                        .foregroundColor(Color("text"))
-                            .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
-                            .keyboardType(.asciiCapableNumberPad)
+                        TextField("", value: $newquantity, formatter: formatter)                     .frame(width: UIScreen.screenWidth-40, height: 35)
+                            .foregroundColor(Color(.black))
+                            .background(RoundedRectangle(cornerRadius: 5).fill(Color.white))
+                            .keyboardType(.decimalPad)
                         
                         
                     }
@@ -80,6 +81,7 @@ struct InventoryEditView: View {
             }, label: {
               Text("Cancel")
                 .fontWeight(Font.Weight.regular)
+                .foregroundColor(.white)
             }),
         trailing:
           Button(action: updateInvetory) {

@@ -23,9 +23,8 @@ struct OrdersView: View {
         }
     }
     var body: some View {
+        
       NavigationView {
-          ZStack{
-              Color("defultColor").edgesIgnoringSafeArea(.all)
               List {
                   ForEach(products, id: \.id){
                       product in
@@ -47,23 +46,14 @@ struct OrdersView: View {
                                       .font(.system(size: 30))
                                       .padding()
                               }.padding()
-                          }.frame(width: 344, height: 100)
+                          }.frame(width: UIScreen.screenWidth - 40, height: 100)
                       }
                   }
-                  .onDelete(perform: {IndexSet in
-                      for index in IndexSet {
-                          if let id = products[index].id {
-                              let productDetailRequester = ProductRequest(productID: id)
-                              productDetailRequester.delete(auth: auth)
-                          }
-                      }
-                      products.remove(atOffsets: IndexSet)
-                  })
                   .listRowBackground(Color.clear)
                   .background(RoundedRectangle(cornerRadius: 17).fill(Color.accentColor))
                   .listRowSeparator(.hidden)
                   .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
-              }.listStyle(.insetGrouped)
+              .listStyle(.insetGrouped)
               
                   .navigationTitle("Set Order")
           }

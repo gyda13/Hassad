@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "52D56E3A-3A6F-4CD5-93CD-4FB066592B55"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0F10EE5E-D659-48DB-A29F-79B839D1DF75"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hassad/Views/Orders Views/OrdersView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "0F10EE5E-D659-48DB-A29F-79B839D1DF75 - 60f2b6e5c3f557a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hassad.OrdersView.body.getter : some"
+                  moduleName = "Hassad"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gyda/Documents/Hassad/Hassad/Views/Orders%20Views/OrdersView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "860">
+               </Location>
+               <Location
+                  uuid = "0F10EE5E-D659-48DB-A29F-79B839D1DF75 - 4ab27f47e180c0be"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.List&lt;Swift.Never, &lt;&lt;opaque return type of SwiftUI.View.navigationTitle(SwiftUI.LocalizedStringKey) -&gt; some&gt;&gt;.0&gt; in Hassad.OrdersView.body.getter : some"
+                  moduleName = "Hassad"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gyda/Documents/Hassad/Hassad/Views/Orders%20Views/OrdersView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "628">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

@@ -13,6 +13,8 @@ struct CreateProductView: View {
     
     init() {
             UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+        
+      
         }
     
     @State var productname = ""
@@ -22,7 +24,7 @@ struct CreateProductView: View {
     @State var profit = ""
     @State var profitD = 0.0
     @State var quantity = 0
-
+    
   @Environment(\.presentationMode) var presentationMode
   @EnvironmentObject var auth: Auth
   @State private var showingProductSaveErrorAlert = false
@@ -45,8 +47,9 @@ struct CreateProductView: View {
                         .bold()
                     HStack {
                         TextField("", text: $productname)
-                            .foregroundColor(Color("text"))
-                            .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
+                            .frame(width: UIScreen.screenWidth-40, height: 35)
+                            .foregroundColor(Color(.black))
+                            .background(RoundedRectangle(cornerRadius: 5).fill(Color.white))
                     }
                     Text("Labor Cost")
                         .foregroundColor(Color.white)
@@ -54,16 +57,11 @@ struct CreateProductView: View {
                         .bold()
                     HStack {
                         TextField("", text: $laborcost)
-                            .foregroundColor(Color("text"))
-                            .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
-                            .keyboardType(.asciiCapableNumberPad)
+                            .frame(width: UIScreen.screenWidth-40, height: 35)
+                            .foregroundColor(Color(.black))
+                            .background(RoundedRectangle(cornerRadius: 5).fill(Color.white))
+                            .keyboardType(.decimalPad)
                         
-                            .onReceive(Just(laborcost)) { newValue in
-                                let filtered = newValue.filter { "0123456789".contains($0) }
-                                if filtered != newValue {
-                                    self.laborcost = filtered
-                                }
-                            }
                     }
                     
                     Text("Materials Cost")
@@ -72,15 +70,10 @@ struct CreateProductView: View {
                         .bold()
                     HStack {
                         TextField("", text: $actualcost)
-                            .foregroundColor(Color("text"))
-                            .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
-                            .keyboardType(.asciiCapableNumberPad)
-                            .onReceive(Just(actualcost)) { newValue in
-                                let filtered = newValue.filter { "0123456789".contains($0) }
-                                if filtered != newValue {
-                                    self.actualcost = filtered
-                                }
-                            }
+                            .frame(width: UIScreen.screenWidth-40, height: 35)
+                            .foregroundColor(Color(.black))
+                            .background(RoundedRectangle(cornerRadius: 5).fill(Color.white))
+                            .keyboardType(.decimalPad)
                     }
                     Text("Profit Margin")
                         .foregroundColor(Color.white)
@@ -96,8 +89,8 @@ struct CreateProductView: View {
             }.padding()
         }
         .navigationBarTitle("Create Product", displayMode: .inline).foregroundColor(.white)
-        
-     
+       
+   
         
       .navigationBarItems(
         
@@ -108,6 +101,7 @@ struct CreateProductView: View {
             }, label: {
               Text("Cancel")
                 .fontWeight(Font.Weight.regular)
+                .foregroundColor(.white)
             }),
         
         
@@ -132,6 +126,8 @@ struct CreateProductView: View {
     .alert(isPresented: $showingProductSaveErrorAlert) {
       Alert(title: Text("Error"), message: Text("There was a problem saving the acronym"))
     }
+      
+   
   }
 
 
@@ -164,6 +160,5 @@ struct CreateProductView_Previews: PreviewProvider {
   }
 }
 
-    
-    
-   
+
+ 

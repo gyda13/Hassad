@@ -14,7 +14,7 @@ struct LoginView: View {
   @State private var showingLoginErrorAlert = false
   @EnvironmentObject var auth: Auth
   @State var showsignUp = false
-    
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -40,7 +40,6 @@ struct LoginView: View {
                         .cornerRadius(14)
                         .overlay(RoundedRectangle(cornerRadius: 14)
                             .stroke(Color("borders"), lineWidth: 1))
-                      //  .offset(x:0, y: -5)
                     
                     SecureField("\(Image(systemName: "lock.fill")) Password", text: $password)
                         .frame(width: 323)
@@ -78,12 +77,17 @@ struct LoginView: View {
                         }.navigationBarBackButtonHidden(true)
                     }
                 }
-               
+              
+
                 .alert(isPresented: $showingLoginErrorAlert) {
                     Alert(title: Text("Error"), message: Text("Could not log in. Check your credentials and try again"))
                 }
                 .navigationTitle("Log In")
             .navigationBarBackButtonHidden(true)
+                
+            .onTapGesture {
+                self.endTextEditing2()
+            }
             }.background(Color("AccentColor"))
         }
     }
@@ -107,5 +111,12 @@ struct LoginView: View {
 struct Login_Previews: PreviewProvider {
   static var previews: some View {
     LoginView()
+  }
+}
+
+extension View {
+  func endTextEditing2() {
+    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder),
+                                    to: nil, from: nil, for: nil)
   }
 }

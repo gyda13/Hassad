@@ -61,8 +61,9 @@ struct UpdateProductView: View {
                     
                     HStack {
                         TextField("", text: $productname)
-                            .foregroundColor(Color("text"))
-                            .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
+                            .frame(width: UIScreen.screenWidth-40, height: 35)
+                            .foregroundColor(Color(.black))
+                            .background(RoundedRectangle(cornerRadius: 5).fill(Color.white))
                     }
                     
                     
@@ -74,9 +75,10 @@ struct UpdateProductView: View {
                     
                     HStack {
                         TextField("", value: $laborcost, formatter: formatter)
-                            .foregroundColor(Color("text"))
-                            .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
-                            .keyboardType(.asciiCapableNumberPad)
+                            .frame(width: UIScreen.screenWidth-40, height: 35)
+                            .foregroundColor(Color(.black))
+                            .background(RoundedRectangle(cornerRadius: 5).fill(Color.white))
+                            .keyboardType(.decimalPad)
                         
                     }
                     Text("Materials Cost")
@@ -86,9 +88,10 @@ struct UpdateProductView: View {
                     
                     
                     HStack {
-                        TextField("", value: $actualcost, formatter: formatter)                        .foregroundColor(Color("text"))
-                            .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
-                            .keyboardType(.asciiCapableNumberPad)
+                        TextField("", value: $actualcost, formatter: formatter)                   .frame(width: UIScreen.screenWidth-40, height: 35)
+                            .foregroundColor(Color(.black))
+                            .background(RoundedRectangle(cornerRadius: 5).fill(Color.white))
+                            .keyboardType(.decimalPad)
                        
                     }
                     
@@ -119,11 +122,12 @@ struct UpdateProductView: View {
             }, label: {
               Text("Cancel")
                 .fontWeight(Font.Weight.regular)
+                .foregroundColor(.white)
             }),
         trailing:
           Button(action: updateProduct) {
            
-                  Text("Save")
+                  Text("Update")
                       .foregroundColor(.white)
              
           }

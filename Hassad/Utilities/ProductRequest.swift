@@ -12,7 +12,7 @@ struct ProductRequest {
   let resource: URL
 
   init(productID: UUID) {
-    let resourceString = "http://127.0.0.1:8080/api/products/\(productID)"
+    let resourceString = "https://hassadapp.herokuapp.com/api/products/\(productID)"
     guard let resourceURL = URL(string: resourceString) else {
       fatalError("Unable to createURL")
     }

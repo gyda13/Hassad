@@ -50,8 +50,9 @@ struct UpdateInventoryView: View {
                     
                     HStack {
                         TextField("", text: $inventoryname)
-                            .foregroundColor(Color("text"))
-                            .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
+                            .frame(width: UIScreen.screenWidth-40, height: 35)
+                                .foregroundColor(Color(.black))
+                                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white))
                     }
                     
                     
@@ -63,9 +64,10 @@ struct UpdateInventoryView: View {
                     
                     HStack {
                         TextField("", value: $inventoryprice, formatter: formatter)
-                            .foregroundColor(Color("text"))
-                            .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
-                            .keyboardType(.asciiCapableNumberPad)
+                            .frame(width: UIScreen.screenWidth-40, height: 35)
+                                .foregroundColor(Color(.black))
+                                .background(RoundedRectangle(cornerRadius: 5).fill(Color.white))
+                                .keyboardType(.decimalPad)
                         
                     }
                     
@@ -81,9 +83,10 @@ struct UpdateInventoryView: View {
                     
                     
                     HStack {
-                        TextField("", value: $quantity, formatter: formatter)                        .foregroundColor(Color("text"))
-                            .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
-                            .keyboardType(.asciiCapableNumberPad)
+                        TextField("", value: $quantity, formatter: formatter)                        .frame(width: UIScreen.screenWidth-40, height: 35)
+                            .foregroundColor(Color(.black))
+                            .background(RoundedRectangle(cornerRadius: 5).fill(Color.white))
+                            .keyboardType(.decimalPad)
                         
                         
                     }
@@ -107,10 +110,11 @@ struct UpdateInventoryView: View {
             }, label: {
               Text("Cancel")
                 .fontWeight(Font.Weight.regular)
+                .foregroundColor(.white)
             }),
         trailing:
           Button(action: updateInvetory) {
-              Text("Save")
+              Text("Update")
                   .foregroundColor(.white)
           }
             .disabled(inventoryname.isEmpty || inventoryprice.isZero)

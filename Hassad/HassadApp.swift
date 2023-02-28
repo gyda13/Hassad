@@ -27,7 +27,7 @@ struct HassadApp: App {
                  }
                  ProductView(auth: auth)
                  .tabItem {
-                   Label("Products", systemImage: "square.and.pencil")
+                   Label("Products", systemImage: "shippingbox")
                  }
                  OrdersView(auth: auth)
                  .tabItem {

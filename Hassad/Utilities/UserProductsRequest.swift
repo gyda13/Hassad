@@ -13,7 +13,7 @@ struct UserProductsRequest<ResourceType> where ResourceType: Codable {
     
   
   init(userID: UUID) {
-    let resourceString = "http://127.0.0.1:8080/api/users/\(userID)/products"
+    let resourceString = "https://hassadapp.herokuapp.com/api/users/\(userID)/products"
     guard let resourceURL = URL(string: resourceString) else {
       fatalError("Unable to createURL")
     }

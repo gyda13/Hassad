@@ -50,7 +50,7 @@ class Auth: ObservableObject {
 
 
   func login(email: String, password: String, completion: @escaping (AuthResult) -> Void) {
-    let path = "http://127.0.0.1:8080/api/users/login"
+    let path = "https://hassadapp.herokuapp.com/api/users/login"
       guard let url = URL(string: path) else {
       fatalError("Failed to convert URL")
     }

@@ -9,7 +9,7 @@
 import Foundation
 
 struct ResourceRequest<ResourceType> where ResourceType: Codable {
-    let baseURL = "http://localhost:8080/api/"
+    let baseURL = "https://hassadapp.herokuapp.com/api/"
     let resourceURL: URL
     
     init(resourcePath: String) {

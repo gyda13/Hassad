@@ -49,18 +49,9 @@ struct InventoryForProductsView: View {
                                 .font(.system(size: 24))
                                 .padding()
                         }.padding()
-                    }.frame(width: 344, height: 72)
+                    }.frame(width: UIScreen.screenWidth - 40, height: 72)
                 }
             }
-            .onDelete(perform: {IndexSet in
-                for index in IndexSet {
-                    if let id = inventory[index].id {
-                        let inventoryDetailRequester = InventoryRequest(inventoryID: id)
-                        inventoryDetailRequester.delete(auth: auth)
-                    }
-                }
-                inventory.remove(atOffsets: IndexSet)
-            })
             .listRowBackground(Color.clear)
             .background(RoundedRectangle(cornerRadius: 17).fill(Color.accentColor))
             .listRowSeparator(.hidden)

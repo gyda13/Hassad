@@ -48,7 +48,7 @@ struct profile: View {
             
                       VStack{
                         
-                            Text(user?.businessname ?? "no")
+                            Text(user?.businessname ?? "")
                                     .font(.title2)
                                     .fontWeight(.bold)
                                     .foregroundColor(Color.white)
@@ -58,7 +58,7 @@ struct profile: View {
                                     .fontWeight(.thin)
                                     .foregroundColor(Color.white)
                           
-                          Text(user?.email ?? "no")
+                          Text(user?.email ?? "")
                                     .font(.title2)
                                     .fontWeight(.bold)
                                     .foregroundColor(Color.white)

@@ -37,8 +37,9 @@ struct CreateInventoryView: View {
                     
                     HStack {
                         TextField("", text: $inventoryname)
-                            .foregroundColor(Color("text"))
-                            .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
+                            .frame(width: UIScreen.screenWidth-40, height: 35)
+                            .foregroundColor(Color(.black))
+                            .background(RoundedRectangle(cornerRadius: 5).fill(Color.white))
                         
                     }
                     
@@ -52,16 +53,10 @@ struct CreateInventoryView: View {
                     
                     HStack {
                         TextField("", text: $inventoryprice)
-                            .foregroundColor(Color("text"))
-                            .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
-                            .keyboardType(.asciiCapableNumberPad)
-                        
-                            .onReceive(Just(inventoryprice)) { newValue in
-                                let filtered = newValue.filter { "0123456789".contains($0) }
-                                if filtered != newValue {
-                                    self.inventoryprice = filtered
-                                }
-                            }
+                            .frame(width: UIScreen.screenWidth-40, height: 35)
+                            .foregroundColor(Color(.black))
+                            .background(RoundedRectangle(cornerRadius: 5).fill(Color.white))
+                            .keyboardType(.decimalPad)
                     }
                     
                     Text("Material quantity")
@@ -71,16 +66,10 @@ struct CreateInventoryView: View {
                     
                     HStack {
                         TextField("", text: $quantity)
-                            .foregroundColor(Color("text"))
-                            .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: UIScreen.screenWidth-40, height: 35).cornerRadius(5)
-                            .keyboardType(.asciiCapableNumberPad)
-                        
-                            .onReceive(Just(quantity)) { newValue in
-                                let filtered = newValue.filter { "0123456789".contains($0) }
-                                if filtered != newValue {
-                                    self.quantity = filtered
-                                }
-                            }
+                            .frame(width: UIScreen.screenWidth-40, height: 35)
+                            .foregroundColor(Color(.black))
+                            .background(RoundedRectangle(cornerRadius: 5).fill(Color.white))
+                            .keyboardType(.decimalPad)
                     }
                     
                 }.padding(.bottom,90)
@@ -95,6 +84,7 @@ struct CreateInventoryView: View {
             }, label: {
               Text("Cancel")
                 .fontWeight(Font.Weight.regular)
+                .foregroundColor(.white)
             }),
         trailing:
           Button(action: saveInventory) {
@@ -140,3 +130,5 @@ struct CreateInventoryView_Previews: PreviewProvider {
       CreateInventoryView()
   }
 }
+
+

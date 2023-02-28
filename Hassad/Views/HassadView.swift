@@ -51,109 +51,111 @@ struct HassadView: View {
 
 
         NavigationView {
-            
-            ScrollView{
-                VStack(spacing: 30){
-                    VStack (spacing: 10){
-                       
-                        HStack {
-                            Text(user?.businessname ?? "no")
-                                .font(.title)
-                                .bold()
-                            Spacer()
+            ZStack{
+                Color("defultColor").edgesIgnoringSafeArea(.all)
+                ScrollView{
+                    VStack(spacing: 30){
+                        VStack (spacing: 10){
                             
-                        }.padding()
-                        
-                        ZStack {
-                            Rectangle()
-                                .frame(width: UIScreen.screenWidth - 40 , height: 150)
-                                .mask(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                                .foregroundColor(Color.accentColor)
-                            VStack {
-                                Text(Date().formatted(date: .complete, time: .omitted))
-                                    .foregroundColor(.white)
+                            HStack {
+                                Text(user?.businessname ?? "")
+                                    .font(.title)
+                                    .bold()
+                                Spacer()
                                 
-                                HStack(alignment: .bottom, spacing: 35){
-                                    
-                                    VStack{
-                                        
-                                        Text("\(TotalProfit().formatted())").font(.largeTitle).bold()
-                                            .padding(.bottom,4)
-                                        Text("Profits").bold()
-                                    }.foregroundColor(.white)
-                                    
-                                    Rectangle()
-                                        .frame(width: 1, height: 80)
+                            }.padding()
+                            
+                            ZStack {
+                                Rectangle()
+                                    .frame(width: UIScreen.screenWidth - 40 , height: 150)
+                                    .mask(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                                    .foregroundColor(Color.accentColor)
+                                VStack {
+                                    Text(Date().formatted(date: .complete, time: .omitted))
                                         .foregroundColor(.white)
                                     
-                                    VStack{
-                                        Text("\(TotalOrders())").font(.largeTitle).bold()
-                                            .padding(.bottom,4)
-                                        Text("Orders").bold()
-                                    }.foregroundColor(.white)
-                                    
+                                    HStack(alignment: .bottom, spacing: 35){
+                                        
+                                        VStack{
+                                            
+                                            Text("\(TotalProfit().formatted())").font(.largeTitle).bold()
+                                                .padding(.bottom,4)
+                                            Text("Profits").bold()
+                                        }.foregroundColor(.white)
+                                        
+                                        Rectangle()
+                                            .frame(width: 1, height: 80)
+                                            .foregroundColor(.white)
+                                        
+                                        VStack{
+                                            Text("\(TotalOrders())").font(.largeTitle).bold()
+                                                .padding(.bottom,4)
+                                            Text("Orders").bold()
+                                        }.foregroundColor(.white)
+                                        
+                                    }
                                 }
                             }
+                            
+                            
                         }
-                        
-                    
-                    }
-                    VStack(spacing: 15){
-                        Picker("" , selection: $selection){
+                        VStack(spacing: 15){
+                            Picker("" , selection: $selection){
+                                
+                                Text("Products Profits").tag("ProductProfits")
+                                Text("Products Quantity").tag("ProductQuantity")
+                                
+                            }.pickerStyle(.segmented).padding(.horizontal,20)
                             
-                            Text("Products Profits").tag("ProductProfits")
-                            Text("Products Quantity").tag("ProductQuantity")
-                            
-                        }.pickerStyle(.segmented).padding(.horizontal,20)
-                        
-                        if selection == "ProductProfits"{
-                            
-                            GroupBox ( "Products Profits Chart") {
-                                Chart {
-                                    ForEach(products, id: \.id){
-                                        product in
-                                        if product.quantity != 0 {
-                                            BarMark(
-                                                x: .value("Product Name", product.productname),
-                                                y: .value("Product Profits", product.profit)
-                                            ).foregroundStyle(Color.pink.gradient)
-                                                .annotation(position: .top) {
-                                                                    Text("\(String(format: "%.0f", product.profit)) SR")
-                                                                        .foregroundColor(Color.gray)
-                                                                        .font(.system(size: 12, weight: .bold))
-                                                }
+                            if selection == "ProductProfits"{
+                                
+                                GroupBox ( "Products Profits Chart") {
+                                    Chart {
+                                        ForEach(products, id: \.id){
+                                            product in
+                                            if product.quantity != 0 {
+                                                BarMark(
+                                                    x: .value("Product Name", product.productname),
+                                                    y: .value("Product Profits", product.profit )
+                                                ).foregroundStyle(Color.pink.gradient)
+                                                    .annotation(position: .top) {
+                                                        Text("\(String(format: "%.0f", product.profit)) SR")
+                                                            .foregroundColor(Color.gray)
+                                                            .font(.system(size: 12, weight: .bold))
+                                                    }
+                                            }
+                                            
                                         }
-                                     
-                                    }
-                                }.frame(height: 240)
-                            }.padding(.horizontal,20)
-                            
-                        } else {
-                            GroupBox ( "Products Quantity Chart") {
-                                Chart {
-                                    ForEach(products, id: \.id){
-                                        product in
-                                        if product.quantity != 0 {
-                                            BarMark(
-                                                x: .value("Product Name", product.productname),
-                                                y: .value("Product Quantity", product.quantity)
-                                            ) .foregroundStyle(Color.blue.gradient)
+                                    }.frame(height: 240)
+                                }.padding(.horizontal,20)
+                                
+                            } else {
+                                GroupBox ( "Products Quantity Chart") {
+                                    Chart {
+                                        ForEach(products, id: \.id){
+                                            product in
+                                            if product.quantity != 0 {
+                                                BarMark(
+                                                    x: .value("Product Name", product.productname),
+                                                    y: .value("Product Quantity", product.quantity)
+                                                ) .foregroundStyle(Color.blue.gradient)
+                                            }
                                         }
-                                    }
-                                }.frame(height: 240)
-                            }.padding(.horizontal,20)
-                            
+                                    }.frame(height: 240)
+                                }.padding(.horizontal,20)
+                                
+                            }
+                            ZStack {
+                                Rectangle()
+                                    .frame(width: UIScreen.screenWidth - 40, height: 50)
+                                    .mask(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                                    .foregroundColor(Color.accentColor)
+                                ShareLink("PDF Business Summery", item: render())
+                                    .foregroundColor(Color.white)
+                            }
                         }
-                        ZStack {
-                            Rectangle()
-                                .frame(width: UIScreen.screenWidth - 40, height: 50)
-                                .mask(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                                .foregroundColor(Color.accentColor)
-                            ShareLink("PDF Business Summery", item: render())
-                                .foregroundColor(Color.white)
-                        }
-                    }
-                }.padding(.top,25)
+                    }.padding(.top,25)
+                }
             }
             .toolbar{
                 NavigationLink(destination: profile(auth: auth)) {
