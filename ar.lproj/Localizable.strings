@@ -1,0 +1,71 @@
+/* 
+  Localizable.strings
+  Hassad
+
+  Created by gyda almohaimeed on 09/08/1444 AH.
+  
+*/
+
+
+"Hassad" = "حصاد";
+
+"Cancel" = "إلغاء";
+
+"Save" = "حفظ";
+
+"Done" = "تم";
+
+"Update" = "تحديث";
+
+//account
+"Sign Out" = "تسجيل خروج";
+"Log In" = "تسجيل دخول";
+"Sign Up" = "إنشاء حساب جديد";
+"Welcome Back" = "مرحبا بك من جديد";
+"Get Started" = "مرحبا بك";
+"Email Address" = "البريد الإلكتروني";
+"Buisiness Name" = "اسم المشروع";
+"Password" = "كلمة المرور";
+"Confirm Password" = "إعادة إدخال كلمة المرور";
+"Don't Have an Account?" = "ليس لديك حساب؟";
+"Already have an Account?" = "لديك حساب؟";
+
+//Hassad view
+"Products Profits" = "أرباح المنتجات";
+"Products Quantity" = "عدد المنتجات";
+"Products Profits Chart" = "أرباح المنتجات";
+"Products Quantity Chart" = "عدد المنتجات";
+"PDF Business Summary" = "ملخص المشروع PDF";
+"Profits" = "الأرباح";
+
+
+
+// products views
+"Products" = "المنتجات";
+"Create Product" = "إنشاء منتج";
+"Product name" = "اسم المنتج";
+"Labor Cost" = "تكلفة العمل";
+"Materials Cost" = "التكلفة الفعلية للمنتج";
+"Profit Margin" = "هامش الربح الاجمالي";
+"Profit Percentage" = "نسبة الربح للمنتج";
+"Edit Prodict" = "تعديل المنتج";
+
+
+//Inventory views
+"Inventory" = "المخزون";
+"Material name" = "اسم المنتج";
+"Material price" = "سعر المنتج";
+"Material quantity" = "الكمية المتوفرة";
+"Create Material" = "إضافة منتج";
+"  Price:" = "  السعر:";
+"  Quantity:" = "  الكمية:";
+"SR" = "ريال";
+"Material:" = "المنتج:";
+"Material Quantity needed:" = "كمية المنتج المستخدمة:";
+
+// orders views
+"Orders" = "الطلبات";
+"Set Order" = "إنشاء طلب";
+"Materials used:" = "المنتجات المستخدمة:";
+"Product Quantity:" = "عدد الطلبات للمنتج:";
+"Edit Material" = " ";

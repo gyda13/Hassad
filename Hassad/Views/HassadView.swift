@@ -119,6 +119,7 @@ struct HassadView: View {
                                                     y: .value("Product Profits", product.profit )
                                                 ).foregroundStyle(Color.pink.gradient)
                                                     .annotation(position: .top) {
+                                                        
                                                         Text("\(String(format: "%.0f", product.profit)) SR")
                                                             .foregroundColor(Color.gray)
                                                             .font(.system(size: 12, weight: .bold))
@@ -150,7 +151,7 @@ struct HassadView: View {
                                     .frame(width: UIScreen.screenWidth - 40, height: 50)
                                     .mask(RoundedRectangle(cornerRadius: 8, style: .continuous))
                                     .foregroundColor(Color.accentColor)
-                                ShareLink("PDF Business Summery", item: render())
+                                ShareLink("PDF Business Summary", item: render())
                                     .foregroundColor(Color.white)
                             }
                         }
@@ -169,6 +170,7 @@ struct HassadView: View {
                 
             }
         }
+        
             .onAppear{
                 loadData()
                 getUserInfo()

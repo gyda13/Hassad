@@ -1,0 +1,74 @@
+/* 
+  Localizable.strings
+  Hassad
+
+  Created by gyda almohaimeed on 09/08/1444 AH.
+  
+*/
+
+"Hassad" = "Hassad";
+
+"Cancel" = "Cancel";
+
+"Save" = "Save";
+
+"Done" = "Done";
+
+"Update" = "Update";
+
+
+
+//account
+"Sign Out" = "Sign Out";
+"Log In" = "Log In";
+"Sign Up" = "Sign Up";
+"Welcome Back" = "Welcome Back";
+"Get Started" = "Get Started";
+"Email Address" = "Email Address";
+"Buisiness Name" = "Buisiness Name";
+"Password" = "Password";
+"Confirm Password" = "Confirm Password";
+"Don't Have an Account?" = "Don't Have an Account?";
+"Already have an Account?" = "Already have an Account?";
+
+
+
+
+//Hassad view
+"Products Profits" = "Product Profits";
+"Products Quantity" = "Products Quantity";
+"Products Profits Chart" = "Product Profits Chart";
+"Products Quantity Chart" = "Products Quantity Chart";
+"PDF Business Summary" = "PDF Business Summary";
+"Profits" = "Profits";
+
+
+//Inventory views
+"Inventory" = "Inventory";
+"Material name" = "Material name";
+"Material price" = "Material price";
+"Material quantity" = "Material quantity";
+"Create Material" = "Create Material";
+"  Price:" = "  Price:";
+"  Quantity:" = "  Quantity:";
+"SR" = "SR";
+"Material:" = "Material:";
+"Material Quantity needed:" = "Material Quantity needed:";
+
+
+// products views
+"Products" = "Products";
+"Create Product" = "Creat Product";
+"Product name" = "Product name";
+"Labor Cost" = "Labor Cost";
+"Materials Cost" = "Materials Cost";
+"Profit Margin" = "Profit Margin";
+"Profit Percentage" = "Profit Percentage";
+"Edit Prodict" = "Edit Prodict";
+
+// orders views
+"Orders" = "Orders";
+"Set Order" = "Set Order";
+"Materials used:" = "Materials used:";
+"Edit Material" = "Edit Material";
+"Product Quantity:" = "Product Quantity:";

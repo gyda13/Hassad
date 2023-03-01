@@ -32,17 +32,16 @@ struct SignUpView: View {
               Text("Get Started")
                   .font(.title2)
                   .fontWeight(.bold)
-               
-             
-              TextField("\(Image(systemName: "envelope.fill")) Email Address", text: $email)
-                  .frame(width: 323)
-                  .padding()
-                  .background(Color("textfields"))
-                  .cornerRadius(14)
-                  .overlay(RoundedRectangle(cornerRadius: 14)
-                    .stroke(Color("borders"), lineWidth: 1))
-
               
+             
+                      TextField(NSLocalizedString("\(Image(systemName: "envelope.fill")) Email Address", comment: ""), text: $email)
+                          .frame(width: 323)
+                          .padding()
+                          .background(Color("textfields"))
+                          .cornerRadius(14)
+                          .overlay(RoundedRectangle(cornerRadius: 14)
+                            .stroke(Color("borders"), lineWidth: 1))
+             
               TextField("\(Image(systemName: "person.fill")) Business Name", text: $businessname)
                   .frame(width: 323)
                   .padding()
@@ -101,7 +100,7 @@ struct SignUpView: View {
                   }.navigationBarBackButtonHidden(true)
               }
             }
-          .navigationBarTitle("SignUp")
+          .navigationBarTitle("Sign Up")
           .navigationBarBackButtonHidden(true)
 
         .alert(isPresented: $showingUserSaveErrorAlert) {

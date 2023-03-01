@@ -24,40 +24,49 @@ struct InventoryForProductsView: View {
      }
     
     var body: some View {
-      NavigationView {
-        List {
-            
-            ForEach(inventory, id: \.id){
-                inventory in
-           
-                         
-                Button {
-                    modal = .update(inventory)
-                } label: {
-                    VStack(alignment: .leading){
-                      
-                        HStack {
-                         
-                            VStack{
-                                Text(inventory.inventoryname).font(.title2).bold().foregroundColor(.white)
-                                Text("   Quantity: \(inventory.quantity)").font(.title3).foregroundColor(.white)
+        NavigationView {
+            ZStack{
+                Color("defultColor").edgesIgnoringSafeArea(.all)
+                ScrollView{
+                    VStack{
+                        List {
+                            
+                            ForEach(inventory, id: \.id){
+                                inventory in
+                                
+                                
+                                Button {
+                                    modal = .update(inventory)
+                                } label: {
+                                    VStack(alignment: .leading){
+                                        
+                                        HStack {
+                                            
+                                            VStack{
+                                                Text(inventory.inventoryname).font(.title2).bold().foregroundColor(.white)
+                                                HStack{
+                                                    Text(NSLocalizedString("  Quantity:", comment: "")).font(.title3).foregroundColor(.white)
+                                                    Text("\(inventory.quantity)").font(.title3).foregroundColor(.white)
+                                                }
+                                            }
+                                            Spacer()
+                                            Image(systemName: "plus.circle")
+                                                .foregroundColor(.white)
+                                                .bold()
+                                                .font(.system(size: 24))
+                                            
+                                        }.padding()
+                                    }.frame(width: UIScreen.screenWidth - 40, height: 72)
+                                }
                             }
-                            Spacer()
-                            Image(systemName: "plus.circle")
-                                .foregroundColor(.white)
-                                .bold()
-                                .font(.system(size: 24))
-                                .padding()
-                        }.padding()
-                    }.frame(width: UIScreen.screenWidth - 40, height: 72)
+                            .listRowBackground(Color.clear)
+                            .background(RoundedRectangle(cornerRadius: 17).fill(Color.accentColor))
+                            .listRowSeparator(.hidden)
+                            .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+                        }.listStyle(.insetGrouped)
+                    }
                 }
             }
-            .listRowBackground(Color.clear)
-            .background(RoundedRectangle(cornerRadius: 17).fill(Color.accentColor))
-            .listRowSeparator(.hidden)
-                .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
-        }.listStyle(.insetGrouped)
-       
         .navigationBarTitle("Inventory", displayMode: .inline)
         .foregroundColor(.black)
         .navigationBarItems(

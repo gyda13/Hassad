@@ -38,7 +38,10 @@ struct OrdersView: View {
                                   VStack{
                                       Text("   \(product.productname)").font(.title2).bold().foregroundColor(.white)
                                       Text("")
-                                      Text("\(String(format: "%.2f", product.totalprice)) SR ").font(.title3).foregroundColor(.white)
+                                      HStack{
+                                          Text("\(String(format: "%.2f", product.totalprice))").font(.title3).foregroundColor(.white)
+                                          Text(NSLocalizedString("SR", comment: "")).foregroundColor(.white)
+                                      }
                                   }
                                   Spacer()
                                   Image(systemName: "plus.circle")

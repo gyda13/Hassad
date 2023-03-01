@@ -45,12 +45,13 @@ struct InventoryEditView: View {
             HStack{
                 VStack(alignment: .leading, spacing: 20){
                     
-                    
-                    Text("Material: \(inventoryname)")
-                        .foregroundColor(Color.white)
-                        .font(.title)
-                        .bold()
-                    
+                    HStack{
+                        Text(NSLocalizedString("Material:", comment: "")).font(.title).foregroundColor(.white)
+                        Text("\(inventoryname)")
+                            .foregroundColor(Color.white)
+                            .font(.title)
+                            .bold()
+                    }
                     Text("Material Quantity needed:")
                         .foregroundColor(Color.white)
                         .font(.title2)

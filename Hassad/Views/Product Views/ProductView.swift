@@ -50,10 +50,12 @@ struct ProductView: View {
                                             .padding()
                                     }.frame(width: UIScreen.screenWidth - 40, height: 0.5)
                                 }.frame(width: UIScreen.screenWidth - 40, height: 0.5)
-                                Text("  \(product.productname)" ).font(.title2).bold().foregroundColor(.white)
+                                Text("   \(product.productname)" ).font(.title2).bold().foregroundColor(.white)
                                 Text("")
-                                Text("  \(String(format: "%.2f", product.totalprice)) SR ").font(.title3).foregroundColor(.white)
-                                
+                                HStack{
+                                    Text(" \(String(format: "%.2f", product.totalprice))").font(.title3).foregroundColor(.white)
+                                    Text(NSLocalizedString("SR", comment: "")).foregroundColor(.white)
+                                }
                             }.frame(width: UIScreen.screenWidth - 40, height: 100)
                                 
                             
@@ -75,7 +77,7 @@ struct ProductView: View {
                     .background(RoundedRectangle(cornerRadius: 17).fill(Color.accentColor))
                     .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
                 }.listStyle(.insetGrouped)
-                    .foregroundColor(Color("defultColor"))
+                  
                 
                     .navigationTitle("Products")
                     .toolbar {

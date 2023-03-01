@@ -68,8 +68,9 @@ struct LoginView: View {
                         Text("Don't Have an Account?")
                             .foregroundColor(Color(.gray))
                         NavigationLink(destination: SignUpView().navigationBarBackButtonHidden(true)) {
-                            Text("Sign up")
+                            Text("Sign Up")
                             
+                        
                                 .fontWeight(.bold)
                                 .foregroundColor(Color("text"))
                             
