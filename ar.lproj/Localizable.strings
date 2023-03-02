@@ -21,8 +21,8 @@
 "Sign Out" = "تسجيل خروج";
 "Log In" = "تسجيل دخول";
 "Sign Up" = "إنشاء حساب جديد";
-"Welcome Back" = "مرحبا بك من جديد";
-"Get Started" = "مرحبا بك";
+"Welcome Back" = "اهلا بك من جديد";
+"Get Started" = "إبدأ";
 "Email Address" = "البريد الإلكتروني";
 "Buisiness Name" = "اسم المشروع";
 "Password" = "كلمة المرور";
@@ -53,15 +53,15 @@
 
 //Inventory views
 "Inventory" = "المخزون";
-"Material name" = "اسم المنتج";
-"Material price" = "سعر المنتج";
+"Material name" = "اسم المادة";
+"Material price" = "سعر المادة";
 "Material quantity" = "الكمية المتوفرة";
-"Create Material" = "إضافة منتج";
+"Create Material" = "إضافة مادة";
 "  Price:" = "  السعر:";
 "  Quantity:" = "  الكمية:";
 "SR" = "ريال";
-"Material:" = "المنتج:";
-"Material Quantity needed:" = "كمية المنتج المستخدمة:";
+"Material:" = "المادة:";
+"Material Quantity needed:" = "كمية المادة المستخدمة:";
 
 // orders views
 "Orders" = "الطلبات";

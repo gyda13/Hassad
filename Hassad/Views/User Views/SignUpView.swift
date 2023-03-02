@@ -34,7 +34,7 @@ struct SignUpView: View {
                   .fontWeight(.bold)
               
              
-                      TextField("\(Image(systemName: "envelope.fill")) Email Address", text: $email)
+                TextField("\(Image(systemName: "envelope.fill")) Email Address", text: $email)
                           .frame(width: 323)
                           .padding()
                           .background(Color("textfields"))
