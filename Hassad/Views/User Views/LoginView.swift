@@ -31,17 +31,22 @@ struct LoginView: View {
                         .fontWeight(.bold)
                         .padding(.bottom)
                     
-                  
-                    TextField("\(Image(systemName: "person.fill")) Email Address", text: $email)
-                        .keyboardType(.emailAddress)
-                        .frame(width: 323)
-                        .padding()
-                        .background(Color("textfields"))
-                        .cornerRadius(14)
-                        .overlay(RoundedRectangle(cornerRadius: 14)
-                            .stroke(Color("borders"), lineWidth: 1))
+                    ZStack{
+                        
+                       
+                        TextField(NSLocalizedString("Email Address", comment: ""), text: $email)
+                            .keyboardType(.emailAddress)
+                            .frame(width: 323)
+                            .padding()
+                            .background(Color("textfields"))
+                            .cornerRadius(14)
+                            .overlay(RoundedRectangle(cornerRadius: 14)
+                                .stroke(Color("borders"), lineWidth: 1))
+                       
+                    }
                     
-                    SecureField("\(Image(systemName: "lock.fill")) Password", text: $password)
+                    
+                    SecureField(NSLocalizedString("Password", comment: ""), text: $password)
                         .frame(width: 323)
                         .padding()
                         .background(Color("textfields"))

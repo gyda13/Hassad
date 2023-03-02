@@ -44,7 +44,7 @@ struct ProductView: View {
                                     Text("")
                                     HStack {
                                         Spacer()
-                                        Image(systemName: "ellipsis")
+                                        Image(systemName: "pencil")
                                             .foregroundColor(.white)
                                             .bold()
                                             .padding()

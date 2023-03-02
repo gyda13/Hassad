@@ -34,7 +34,8 @@ struct SignUpView: View {
                   .fontWeight(.bold)
               
              
-                TextField("\(Image(systemName: "envelope.fill")) Email Address", text: $email)
+              
+                TextField(NSLocalizedString("Email Address", comment: ""), text: $email)
                           .frame(width: 323)
                           .padding()
                           .background(Color("textfields"))
@@ -42,7 +43,7 @@ struct SignUpView: View {
                           .overlay(RoundedRectangle(cornerRadius: 14)
                             .stroke(Color("borders"), lineWidth: 1))
              
-              TextField("\(Image(systemName: "person.fill")) Business Name", text: $businessname)
+              TextField(NSLocalizedString("Business Name", comment: ""), text: $businessname)
                   .frame(width: 323)
                   .padding()
                   .background(Color("textfields"))
@@ -50,15 +51,16 @@ struct SignUpView: View {
                   .overlay(RoundedRectangle(cornerRadius: 14)
                       .stroke(Color("borders"), lineWidth: 1))
               
-              SecureField("\(Image(systemName: "lock.fill")) Password", text: $password)
+              SecureField(NSLocalizedString("Password", comment: ""), text: $password)
                   .frame(width: 323)
                   .padding()
                   .background(Color("textfields"))
                   .cornerRadius(14)
                   .overlay(RoundedRectangle(cornerRadius: 14)
                       .stroke(Color("borders"), lineWidth: 1))
-                 // .offset(x:0, y: 25)
-              SecureField("\(Image(systemName: "lock.fill")) Confirm Password", text: $confirmPassword)
+               
+             
+              SecureField(NSLocalizedString("Confirm Password", comment: ""), text: $confirmPassword)
                   .frame(width: 323)
                   .padding()
                   .background(Color("textfields"))
