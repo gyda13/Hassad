@@ -23,7 +23,8 @@ decisions about how to price and manage your inventory in order to maximize prof
 - العربية </br>
 
 ## Main Screens
-![Cover Frame](https://user-images.githubusercontent.com/90142160/224461031-083c1767-2737-4aeb-8571-37c5501ea5e8.png)
+
+![Cove](https://user-images.githubusercontent.com/90142160/224474406-3273868a-594b-4e91-a7b8-958e8ddb3fbb.png)
 
 ## Demo
 
