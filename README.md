@@ -1,4 +1,7 @@
 # Hassad
+![PHOTO-2023-02-27-13-27-27](https://user-images.githubusercontent.com/90142160/224464350-1265cf66-9f7f-4eb4-81d3-24a4a8267da7.jpg)
+
+
 iOS Application that can help small business owners managing their inventory and products.
 Hassad was build using [Vapor API](https://github.com/gyda13/BusinessManagerAPI).
 
