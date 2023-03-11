@@ -16,6 +16,10 @@ decisions about how to price and manage your inventory in order to maximize prof
 - Sketch
 - Xcode
 
+## Languages supported
+- English </br>
+- العربية </br>
+
 ## Main Screens
 ![Cover Frame](https://user-images.githubusercontent.com/90142160/224461031-083c1767-2737-4aeb-8571-37c5501ea5e8.png)
 
