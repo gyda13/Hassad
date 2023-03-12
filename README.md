@@ -2,7 +2,7 @@
 ![PHOTO-2023-02-27-13-27-27 1](https://user-images.githubusercontent.com/90142160/224464558-0ff21b5e-1a9a-4502-966b-3d224a9a5a5a.png)
 
 iOS Application that can help small business owners managing their inventory and products.
-Hassad was build using [Vapor API](https://github.com/gyda13/BusinessManagerAPI).
+Hassad was build using [BusinessManagerAPI](https://github.com/gyda13/BusinessManagerAPI).
 
 This application is designed to make the lives of small business owners easier by taking the guesswork out of 
 pricing and inventory management, also it provides detailed analytics on your sales, so that you can see which
