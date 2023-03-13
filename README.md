@@ -33,7 +33,7 @@ https://user-images.githubusercontent.com/90142160/224461022-43169221-7c28-433e-
 
 ## Developers 
 - Gyda Almohaimeed
-- Lulwah Almisfer
-- Raghad Aloraij
+- Lulwah Almisfer 
+- Raghad Aloraij - [LinkedIn](https://www.linkedin.com/in/raghad-aloraij-286ba4216/) 
 - Bashayer Alghamdi
 - Nouf Alghannam - [LinkedIn](https://www.linkedin.com/in/noufghannam/) 
