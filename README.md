@@ -36,4 +36,4 @@ https://user-images.githubusercontent.com/90142160/224461022-43169221-7c28-433e-
 - Lulwah Almisfer
 - Raghad Aloraij
 - Bashayer Alghamdi
-- Nouf Alghannam 
+- Nouf Alghannam - [LinkedIn](https://www.linkedin.com/in/noufghannam/) 
