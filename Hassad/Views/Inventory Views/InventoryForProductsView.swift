@@ -27,7 +27,7 @@ struct InventoryForProductsView: View {
         NavigationView {
             ZStack{
                 Color("defultColor").edgesIgnoringSafeArea(.all)
-                ScrollView{
+             
                     VStack{
                         List {
                             
@@ -65,7 +65,7 @@ struct InventoryForProductsView: View {
                             .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
                         }.listStyle(.insetGrouped)
                     }
-                }
+                
             }
         .navigationBarTitle("Inventory", displayMode: .inline)
         .foregroundColor(.black)
