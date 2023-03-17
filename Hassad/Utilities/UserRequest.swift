@@ -53,6 +53,19 @@ struct UserRequest<ResourceType> where ResourceType: Codable {
         
         dataTask.resume()
     }
+    
+    func delete(auth: Auth){
+        guard let token = auth.token else {
+            auth.logout()
+            return
+        }
+        var urlRequest = URLRequest(url: resourceURL)
+        urlRequest.httpMethod = "DELETE"
+        urlRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        let dataTask = URLSession.shared.dataTask(with: urlRequest)
+        dataTask.resume()
+        auth.logout()
+    }
 
     
 

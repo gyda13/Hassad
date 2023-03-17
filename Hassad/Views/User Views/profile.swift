@@ -86,6 +86,17 @@ struct profile: View {
                             .cornerRadius(17.5)
                         Spacer()
                     }.ignoresSafeArea()
+                    
+                    VStack{
+                        Button( action: {
+                           
+                                let userDetailRequester = UserRequest<User>(userID: (user?.id ?? UUID()))
+                                userDetailRequester.delete(auth: auth)
+                            
+                        }) {
+                            Text("delete your account").underline()
+                        }
+                    }.padding(.top, 600.0)
                 }
 
             }
