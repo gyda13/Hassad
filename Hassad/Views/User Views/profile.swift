@@ -98,7 +98,6 @@ struct profile: View {
                         }
                     }.padding(.top, 600.0)
                 }
-
             }
             
         }

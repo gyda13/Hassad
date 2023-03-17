@@ -65,6 +65,7 @@ struct UserRequest<ResourceType> where ResourceType: Codable {
         let dataTask = URLSession.shared.dataTask(with: urlRequest)
         dataTask.resume()
         auth.logout()
+        
     }
 
     
