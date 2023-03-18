@@ -13,7 +13,7 @@ struct profile: View {
     @State private var showingErrorAlert = false
     @State private var user: User? = nil
     @AppStorage("key") var uinew = ""
-    
+   
      
      init(auth: Auth) {
 //         if _uinew.wrappedValue == ""{
@@ -89,11 +89,10 @@ struct profile: View {
                     
                     VStack{
                         Button( action: {
-                           
-                                let userDetailRequester = UserRequest<User>(userID: (user?.id ?? UUID()))
-                                userDetailRequester.delete(auth: auth)
-                            
-                        }) {
+                                        let userDetailRequester = UserRequest<User>(userID: auth.ui ?? UUID())
+                                    userDetailRequester.delete(auth: auth)
+                                    
+                                }) {
                             Text("delete your account").underline()
                         }
                     }.padding(.top, 600.0)

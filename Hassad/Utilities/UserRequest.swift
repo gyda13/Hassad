@@ -67,6 +67,8 @@ struct UserRequest<ResourceType> where ResourceType: Codable {
         auth.logout()
         
     }
+    
+      
 
     
 
