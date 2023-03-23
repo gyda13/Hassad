@@ -30,10 +30,9 @@ decisions about how to price and manage your inventory in order to maximize prof
 
 https://user-images.githubusercontent.com/90142160/224461022-43169221-7c28-433e-897d-00efa5ed8edf.mp4
 
-
 ## Developers 
-- Gyda Almohaimeed
-- Lulwah Almisfer 
+- Gyda Almohaimeed [LinkedIn](https://www.linkedin.com/in/gydam/) 
+- Lulwah Almisfer [LinkedIn](https://www.linkedin.com/in/lulwahalmisfer/) 
 - Raghad Aloraij - [LinkedIn](https://www.linkedin.com/in/raghad-aloraij-286ba4216/) 
-- Bashayer Alghamdi
+- Bashayer Alghamdi  - [LinkedIn](https://www.linkedin.com/in/bashayeralgh) 
 - Nouf Alghannam - [LinkedIn](https://www.linkedin.com/in/noufghannam/) 
